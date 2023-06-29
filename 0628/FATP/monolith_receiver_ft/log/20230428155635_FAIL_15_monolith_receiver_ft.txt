@@ -1,0 +1,245 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: 15
+***************
+1.****Power_Off_12V****
+Start:15:55:06
+End:15:55:06
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:15:55:06
+End:15:55:07
+Retrt:0
+Result:Pass
+Value:
+
+3.****____Check_Product_Right_Tray____****
+Start:15:55:12
+End:15:55:12
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Check_Product_Right_Tray****
+Start:15:55:12
+End:15:55:14
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.494005
+CT:
+5.****____TST_Passive antenna measurement____****
+Start:15:55:14
+End:15:55:14
+Retrt:0
+Result:Pass
+Value:
+CT:
+6.****ANT_resonant_frequency****
+Start:15:55:14
+End:15:55:23
+Retrt:0
+Result:Pass
+Value:13.289
+Addition:9.223217
+CT:Q_Value:13.289
+7.****Q_Factor_Value****
+Start:15:55:23
+End:15:55:23
+Retrt:0
+Result:Pass
+Value:37.8604
+Addition:0.000000
+CT:Q_Value:37.8604
+8.****Check_Product_Left_Tray****
+Start:15:55:23
+End:15:55:27
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.129043
+CT:
+9.****Power_On_12V****
+Start:15:55:27
+End:15:55:28
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****Power_On_3.6V****
+Start:15:55:28
+End:15:55:29
+Retrt:0
+Result:Pass
+Value:
+CT:
+11.****____PN5190_Update____****
+Start:15:55:34
+End:15:55:34
+Retrt:0
+Result:Pass
+Value:
+CT:
+12.****PN5190_Update****
+Start:15:55:34
+End:15:55:55
+Retrt:0
+Result:Fail
+Value:FAIL
+Addition:21.103046
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE FAIL --
+run routine: {} Did not receive response in time. P2 timeout time has expired (timeout=20.000 sec)
+
+12.****PN5190_Update****
+Start:15:55:55
+End:15:56:03
+Retrt:1
+Result:Pass
+Value:PASS
+Addition:8.255507
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE PASS --
+
+13.****____TST_RGB____****
+Start:15:56:03
+End:15:56:03
+Retrt:0
+Result:Pass
+Value:
+CT:
+14.****RED_Led_blink****
+Start:15:56:03
+End:15:56:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.098876
+CT:CMD:run_routine set_ux 0
+Output:-- ROUTINE PASS --
+
+15.****Check_RED_Led_blink****
+Start:15:56:05
+End:15:56:07
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.714582
+CT:
+16.****Green_Led_blink****
+Start:15:56:07
+End:15:56:08
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.099322
+CT:CMD:run_routine set_ux 1
+Output:-- ROUTINE PASS --
+
+17.****Check_Green_Led_blink****
+Start:15:56:09
+End:15:56:11
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.464302
+CT:
+18.****Blue_Led_blink****
+Start:15:56:11
+End:15:56:13
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.102561
+CT:CMD:run_routine set_ux 2
+Output:-- ROUTINE PASS --
+
+19.****Check_Blue_Led_blink****
+Start:15:56:14
+End:15:56:15
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.519272
+CT:
+20.****____TST_Flip_Dots_Display____****
+Start:15:56:15
+End:15:56:15
+Retrt:0
+Result:Pass
+Value:
+CT:
+21.****Flip_Dots_Display_7****
+Start:15:56:15
+End:15:56:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.093033
+CT:CMD:run_routine set_flipdots 7
+Output:-- ROUTINE PASS --
+
+22.****Check_Flip_Dots_Display_7****
+Start:15:56:17
+End:15:56:19
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.532962
+CT:
+23.****Flip_Dots_Display_0****
+Start:15:56:19
+End:15:56:20
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.118314
+CT:CMD:run_routine set_flipdots 0
+Output:-- ROUTINE PASS --
+
+24.****Check_Flip_Dots_Display_0****
+Start:15:56:21
+End:15:56:22
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.032037
+CT:
+25.****____Bike_Key_TST_NFC____****
+Start:15:56:23
+End:15:56:23
+Retrt:0
+Result:Pass
+Value:
+CT:
+26.****Put_Bike_key_to_close_NFC****
+Start:15:56:23
+End:15:56:26
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.887400
+CT:
+27.****Bike_Key_NFC_Test_Start****
+Start:15:56:27
+End:15:56:28
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.098382
+CT:CMD:run_routine nfc_user_run
+Output:-- ROUTINE PASS --
+
+28.****Bike_Key_NFC_Test_Measurement****
+Start:15:56:30
+End:15:56:32
+Retrt:0
+Result:Fail
+Value:0
+Addition:2.470319
+CT:-- ROUTINE FAIL --
+-- ROUTINE PASS --

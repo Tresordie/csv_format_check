@@ -1,0 +1,103 @@
+***************
+Station: monolith_cassette_ft
+FixtureID: 1
+SN: FK2323MCAM2AA0032
+***************
+1.****____TST_MES_101_Command____****
+Start:18:39:23
+End:18:39:23
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:18:39:23
+End:18:39:23
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.006983
+CT:CMD:101;RTQ236YM4201;52346;10023023;FK2323MCAM2AA0032;
+Output:OK;OK;
+3.****____Draw_Close____****
+Start:18:39:23
+End:18:39:23
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Draw_Close****
+Start:18:39:23
+End:18:39:23
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.110202
+CT:
+5.****Draw_Close_Status****
+Start:18:39:26
+End:18:39:26
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.100955
+CT:PASS
+6.****____Power_On____****
+Start:18:39:26
+End:18:39:26
+Retrt:0
+Result:Pass
+Value:
+CT:
+7.****Power_On_12V****
+Start:18:39:26
+End:18:39:27
+Retrt:0
+Result:Pass
+Value:
+Addition:1.674770
+CT:
+8.****opmode_force_dev_mode****
+Start:18:39:47
+End:18:39:49
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.222250
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+-- ROUTINE PASS --
+
+9.****____TST_FW____****
+Start:18:39:53
+End:18:39:53
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****FW_Version****
+Start:18:39:53
+End:18:39:53
+Retrt:0
+Result:Pass
+Value:2023.15.103
+Addition:0.898473
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data version"
+Output:version: (2023, 15, 103)
+
+11.****____TST_HW____****
+Start:18:39:53
+End:18:39:53
+Retrt:0
+Result:Pass
+Value:
+CT:
+12.****HW_Version****
+Start:18:39:53
+End:18:40:19
+Retrt:0
+Result:Fail
+Value:None
+Addition:25.787273
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: None
+

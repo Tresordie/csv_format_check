@@ -16,6 +16,29 @@ def get_columns_quantity(csv_file):
     return df.shape[1]
 
 
+def pd_read_csv_head(csv_path):
+    df = pd.read_csv(csv_path)
+    return df.head(0)
+
+
+def pd_read_csv_column(csv_path, column_num):
+    df = pd.read_csv(csv_path)
+    return df.iloc[:, column_num]
+
+
+def pd_read_csv_row(csv_path, row_num):
+    df = pd.read_csv(csv_path)
+    return df.iloc[row_num, :]
+
+
+def sort_csv(file_name, sort_name, ascending_seq, inplace_state, export_file_name):
+    csv_df = pd.read_csv(file_name)
+    csv_df.sort_values(
+        sort_name, axis=0, ascending=[ascending_seq], inplace=inplace_state
+    )
+    csv_df.to_csv(export_file_name, index=False)
+
+
 def creat_csv(csv_file_to_be_created, csv_header):
     # print(csv_file_to_be_created)
     with open(csv_file_to_be_created, "w", encoding="utf8", newline="") as f_bft:
@@ -23,57 +46,18 @@ def creat_csv(csv_file_to_be_created, csv_header):
         csv_write.writerow(csv_header)
 
 
-# method1: 1st row read
-def read_csv_head(csv_path):
+def read_csv_one_row(csv_path, row_num):
     with open(csv_path, "r") as f:
         reader = csv.reader(f)
         rows = [row for row in reader]
-        # print(rows[0])
-        return rows[0]
+        # print(ows[row_num])
+        return rows[row_num]
 
 
-# method2: 1st row read
-def read_csv_firstROW(path):
-    with open(path, "r") as f:
-        reader = csv.reader(f)
-        fistROW = next(reader)
-        print(fistROW)
-
-
-# read one column data
-def read_csv_one_column(csv_path, column_num):
-    """
-    csv_path:   csv file path
-    column_num: specific column need to be read out
-    """
-    with open(csv_path, "r") as f:
-        reader = csv.reader(f)
-        rowList = [rowIndex[column_num] for rowIndex in reader]
-        # print(rowList)
-        return rowList
-
-
-# read specific column data
-def read_csv_column(csv_path, row_num, column_num):
-    with open(csv_path, "r") as f:
-        reader = csv.reader(f)
-        column = [rowIndex[column_num] for rowIndex in reader]
-        # print(column[column_num])
-        return column[row_num]
-
-
-# read specific [row, column] data
-def read_csv_column_optimized(csv_path, row_num, column_num):
-    global test_val
-    temp_full_list = []
-    temp_data = []
-    with open(csv_path, "r") as f:
-        reader = csv.reader(f)
-        temp_full_list = [rowIndex for rowIndex in reader]
-        temp_data = temp_full_list[row_num]
-        test_val = temp_data[column_num]
-        # print(test_val)
-        return test_val
+# read specific cell data
+def read_csv_cell(csv_path, row_num, column_num):
+    specific_row_list = read_csv_one_row(csv_path, row_num)
+    return specific_row_list[column_num]
 
 
 # write data to specific .csv file
@@ -151,11 +135,3 @@ def get_repeat_element_index_list(src_list, str_repeat):
         index_list.append(index)
 
     print(index_list)
-
-
-def sort_csv(file_name, sort_name, ascending_seq, inplace_state, export_file_name):
-    csv_df = pd.read_csv(file_name)
-    csv_df.sort_values(
-        sort_name, axis=0, ascending=[ascending_seq], inplace=inplace_state
-    )
-    csv_df.to_csv(export_file_name, index=False)

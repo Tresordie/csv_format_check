@@ -1,0 +1,21 @@
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2316MMBP2AA0357
+***************
+1.****____TST_MES_101_Command____****
+Start:10:08:02
+End:10:08:02
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:10:08:02
+End:10:08:02
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.016069
+CT:CMD:101;STT234MM01;34483;10023100;FK2316MMBP2AA0357;
+Output:NG;SN/CSN(FK2316MMBP2AA0357) NO SN

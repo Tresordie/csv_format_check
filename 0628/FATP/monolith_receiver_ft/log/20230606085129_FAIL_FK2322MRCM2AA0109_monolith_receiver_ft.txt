@@ -1,0 +1,26 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: FK2322MRCM2AA0109
+***************
+1.****Power_Off_12V****
+Start:08:50:23
+End:08:50:23
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:08:50:23
+End:08:50:24
+Retrt:0
+Result:Pass
+Value:
+
+3.****TST_LPCD_Current_Config****
+Start:08:50:29
+End:08:51:26
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:56.517438

@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,Can_Data,PASS,PASS,,PASS,7.309814,PASS,PASS,0,11,2023-04-26 10:40:07,2023-04-26 10:40:32,1,monolith_main_bft,10023100

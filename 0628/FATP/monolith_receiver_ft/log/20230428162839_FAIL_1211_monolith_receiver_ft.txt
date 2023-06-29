@@ -1,0 +1,129 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: 1211
+***************
+1.****Power_Off_12V****
+Start:16:27:58
+End:16:27:59
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:16:27:59
+End:16:27:59
+Retrt:0
+Result:Pass
+Value:
+
+3.****____Check_Product_Right_Tray____****
+Start:16:28:04
+End:16:28:04
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Check_Product_Right_Tray****
+Start:16:28:04
+End:16:28:11
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:6.798812
+CT:
+5.****____TST_Passive antenna measurement____****
+Start:16:28:11
+End:16:28:11
+Retrt:0
+Result:Pass
+Value:
+CT:
+6.****ANT_resonant_frequency****
+Start:16:28:11
+End:16:28:20
+Retrt:0
+Result:Pass
+Value:13.504
+Addition:9.133526
+CT:Q_Value:13.504
+7.****Q_Factor_Value****
+Start:16:28:20
+End:16:28:20
+Retrt:0
+Result:Pass
+Value:35.4436
+Addition:0.000000
+CT:Q_Value:35.4436
+8.****Check_Product_Left_Tray****
+Start:16:28:20
+End:16:28:25
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.666817
+CT:
+9.****Power_On_12V****
+Start:16:28:25
+End:16:28:26
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****Power_On_3.6V****
+Start:16:28:26
+End:16:28:26
+Retrt:0
+Result:Pass
+Value:
+CT:
+11.****____PN5190_Update____****
+Start:16:28:31
+End:16:28:31
+Retrt:0
+Result:Pass
+Value:
+CT:
+12.****PN5190_Update****
+Start:16:28:31
+End:16:28:34
+Retrt:0
+Result:Fail
+Value:FAIL
+Addition:2.396151
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE FAIL --
+run routine: {} RoutineControl service execution returned a negative response GeneralProgrammingFailure (0x72)
+
+12.****PN5190_Update****
+Start:16:28:34
+End:16:28:35
+Retrt:1
+Result:Fail
+Value:FAIL
+Addition:1.089206
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE FAIL --
+run routine: {} RoutineControl service execution returned a negative response GeneralProgrammingFailure (0x72)
+
+12.****PN5190_Update****
+Start:16:28:35
+End:16:28:36
+Retrt:2
+Result:Fail
+Value:FAIL
+Addition:1.085629
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE FAIL --
+run routine: {} RoutineControl service execution returned a negative response GeneralProgrammingFailure (0x72)
+
+12.****PN5190_Update****
+Start:16:28:36
+End:16:28:37
+Retrt:3
+Result:Fail
+Value:FAIL
+Addition:1.096381
+CT:CMD:run_routine nfc_user_fw_update 2 5
+Output:-- ROUTINE FAIL --
+run routine: {} RoutineControl service execution returned a negative response GeneralProgrammingFailure (0x72)

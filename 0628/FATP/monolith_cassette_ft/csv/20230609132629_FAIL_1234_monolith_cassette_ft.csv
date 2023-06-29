@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,opmode_force_dev_mode,PASS,PASS,,FAIL,60.806215,FAIL,FAIL,,A5D24506-6790-42CD-BF0A-DD9555766740,1234,2023-06-09 13:24:51,2023-06-09 13:26:29,1,monolith_cassette_ft,10023023

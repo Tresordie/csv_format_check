@@ -1,0 +1,85 @@
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: 13
+***************
+1.****Connect_STLink_1****
+Start:10:30:13
+End:10:30:13
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+2.****Power_On_DC_3V7****
+Start:10:30:14
+End:10:30:14
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+3.****Disconnect_STLink_1****
+Start:10:30:16
+End:10:30:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+4.****Power_Off_DC_3V7****
+Start:10:30:16
+End:10:30:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+5.****____ACT_Init_GPIO____****
+Start:10:30:17
+End:10:30:17
+Retrt:0
+Result:Pass
+Value:
+CT:
+6.****Enable_Vbat****
+Start:10:30:17
+End:10:30:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+7.****____Power_On____****
+Start:10:30:17
+End:10:30:17
+Retrt:0
+Result:Pass
+Value:
+CT:
+8.****Power_On_DC_3V7****
+Start:10:30:17
+End:10:30:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+9.****Can_Data****
+Start:10:30:28
+End:10:30:35
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:7.410146
+CT:CMD:test can
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Kc[110D[7C[6C[Ka[110D[7C[7C[Kn[110D[7C[8C
+lyft > 	VALIDATING
+	[SUCCESS]
+
+TEST 18 - can
+	RUNNING
+	CAN sending 0x7C on 0x5F0
+	VALIDATING
+	[SUCCESS]
+

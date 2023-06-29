@@ -1,0 +1,14 @@
+***************
+Station: monolith_bollard_ft
+FixtureID: 1
+SN: 1
+***************
+1.****MES_101_Command_Send****
+Start:09:37:55
+End:09:37:55
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.010026
+CT:CMD:101;STA236YM5301;52346;10023020;1;
+Output:NG;SN/CSN(1) NO SN

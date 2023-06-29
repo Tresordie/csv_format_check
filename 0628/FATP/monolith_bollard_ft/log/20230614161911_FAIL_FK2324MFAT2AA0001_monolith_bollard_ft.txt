@@ -1,0 +1,266 @@
+***************
+Station: monolith_bollard_ft
+FixtureID: 1
+SN: FK2324MFAT2AA0001
+***************
+1.****MES_101_Command_Send****
+Start:16:18:04
+End:16:18:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.022952
+CT:CMD:101;STA236YM5202;1961113;10023020;FK2324MFAT2AA0001;
+Output:OK;OK;
+2.****____Power_On_12V____****
+Start:16:18:04
+End:16:18:04
+Retrt:0
+Result:Pass
+Value:
+CT:
+3.****Power_On_Recovery_12V****
+Start:16:18:04
+End:16:18:05
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****opmode_force_dev_mode****
+Start:16:18:40
+End:16:18:41
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.213493
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+Output:-- ROUTINE PASS --
+
+5.****____Recovery_port_check____****
+Start:16:18:45
+End:16:18:45
+Retrt:0
+Result:Pass
+Value:
+CT:
+6.****Recovery_port_check****
+Start:16:18:45
+End:16:18:46
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.069383
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine res_power_status"
+Output:Status: 1
+-- ROUTINE PASS --
+
+7.****____TST_FW____****
+Start:16:18:48
+End:16:18:48
+Retrt:0
+Result:Pass
+Value:
+CT:
+8.****FW_Version****
+Start:16:18:48
+End:16:18:49
+Retrt:0
+Result:Pass
+Value:2023.15.103
+Addition:0.872489
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data version"
+Output:version: (2023, 15, 103)
+
+9.****____TST_HW_Version____****
+Start:16:18:49
+End:16:18:49
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****NonCharging_SKU_Hw_Version1****
+Start:16:18:49
+End:16:18:50
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:0.915935
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: Solar
+
+11.****NonCharging_SKU_Hw_Version2****
+Start:16:18:50
+End:16:18:51
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:0.909216
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: Solar
+
+12.****NonCharging_SKU_Hw_Version3****
+Start:16:18:51
+End:16:18:52
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:0.916789
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: Solar
+
+13.****____TST_Battery____****
+Start:16:18:52
+End:16:18:52
+Retrt:0
+Result:Pass
+Value:
+CT:
+14.****BQ_charger_ON****
+Start:16:18:52
+End:16:18:53
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.072052
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_on"
+Output:-- ROUTINE PASS --
+
+15.****TST_Battery2****
+Start:16:18:57
+End:16:18:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.112700
+CT:  adc_sol_v: 0.000 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 3.568 V
+  adc_bat_i: 091966.0 uA
+  adc_lte_i: 20152.000 uA
+  adc_75v_v: 33.413 V
+  adc_mcu_temp_c: 25.000 C
+  adc_ntc1_v: 0.000 V
+  adc_ntc2_v: 0.000 V
+-- ROUTINE PASS --
+
+16.****TST_Battery2_V****
+Start:16:18:58
+End:16:18:58
+Retrt:0
+Result:Pass
+Value:3.568
+Addition:0.000000
+CT:CMD:Battery_Voltage_Read2:
+Output:3.568V
+17.****TST_Battery2_C****
+Start:16:18:58
+End:16:18:58
+Retrt:0
+Result:Pass
+Value:091966.0
+Addition:0.000000
+CT:CMD:Battery_Current_Read2:
+Output:091966.0uA
+18.****Status_1****
+Start:16:18:58
+End:16:18:59
+Retrt:0
+Result:Pass
+Value:1
+Addition:1.069201
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_charge_status"
+Output:Status: 1
+-- ROUTINE PASS --
+
+19.****BQ_charger_OFF****
+Start:16:18:59
+End:16:19:00
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.074437
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_off"
+Output:-- ROUTINE PASS --
+
+20.****TST_Battery1****
+Start:16:19:04
+End:16:19:05
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.101741
+CT:  adc_sol_v: 0.000 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 3.472 V
+  adc_bat_i: 000079.0 uA
+  adc_lte_i: 12078.000 uA
+  adc_75v_v: 32.830 V
+  adc_mcu_temp_c: 25.000 C
+  adc_ntc1_v: 0.000 V
+  adc_ntc2_v: 0.000 V
+-- ROUTINE PASS --
+
+21.****TST_Battery1_V****
+Start:16:19:05
+End:16:19:05
+Retrt:0
+Result:Pass
+Value:3.472
+Addition:0.000000
+CT:CMD:Battery_Voltage_Read1:
+Output:3.472V
+22.****TST_Battery1_C****
+Start:16:19:06
+End:16:19:06
+Retrt:0
+Result:Pass
+Value:000079.0
+Addition:0.000000
+CT:CMD:Battery_Current_Read1:
+Output:000079.0uA
+23.****Status_0****
+Start:16:19:06
+End:16:19:07
+Retrt:0
+Result:Pass
+Value:0
+Addition:1.069423
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_charge_status"
+Output:Status: 0
+-- ROUTINE PASS --
+
+24.****____TST_Solar_L____****
+Start:16:19:07
+End:16:19:07
+Retrt:0
+Result:Pass
+Value:
+CT:
+25.****TST_Solar_L****
+Start:16:19:07
+End:16:19:08
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.103627
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine get_power_info"
+Output:  adc_sol_v: 0.000 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 3.470 V
+  adc_bat_i: 000079.0 uA
+  adc_lte_i: 15730.000 uA
+  adc_75v_v: 33.121 V
+  adc_mcu_temp_c: 26.000 C
+  adc_ntc1_v: 0.000 V
+  adc_ntc2_v: 0.000 V
+-- ROUTINE PASS --
+
+26.****TEST_Solar_L_Voltage****
+Start:16:19:08
+End:16:19:08
+Retrt:0
+Result:Fail
+Value:0.000
+Addition:0.000000
+CT:CMD:Solar_L_Voltage:
+Output:0.000V
