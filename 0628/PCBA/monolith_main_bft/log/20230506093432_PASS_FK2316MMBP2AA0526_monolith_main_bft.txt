@@ -1,5 +1,0 @@
-***************
-Station: monolith_main_bft
-FixtureID: 1
-SN: FK2316MMBP2AA0526
-***************

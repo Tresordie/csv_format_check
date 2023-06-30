@@ -5,22 +5,39 @@ from csv_operate import *
 import os
 import re
 import shutil
-import sys
 
+wrong_folder_validation = True
 csv_date_folder = "./0628/"
 
 main_bft_csv_path = "PCBA/monolith_main_bft/csv"
+main_bft_csv_wrong_path = "PCBA/monolith_main_bft/csv/wrong"
+
 main_flash_csv_path = "PCBA/Monolith_pcba_flash_station/csv"
+main_flash_csv_wrong_path = "PCBA/Monolith_pcba_flash_station/csv/wrong"
+
 triangle_bft_csv_path = "PCBA/Monolith_triangle_pcba_ft/csv"
+triangle_bft_csv_wrong_path = "PCBA/Monolith_triangle_pcba_ft/csv/wrong"
 
 leak_ft_csv_path = "FATP/Monolith_leak_ft/csv"
+leak_ft_csv_wrong_path = "FATP/Monolith_leak_ft/csv/wrong"
+
 cassette_ft_csv_path = "FATP/monolith_cassette_ft/csv"
+cassette_ft_csv_wrong_path = "FATP/monolith_cassette_ft/csv/wrong"
+
 receiver_ft_csv_path = "FATP/monolith_receiver_ft/csv"
+receiver_ft_csv_wrong_path = "FATP/monolith_receiver_ft/csv/wrong"
+
 bollard_ft_csv_path = "FATP/monolith_bollard_ft/csv"
+bollard_ft_csv_wrong_path = "FATP/monolith_bollard_ft/csv/wrong"
 
 solar_flat_ft_csv_path = "FATP/monolith_solar_panel_flat_ft/csv"
+solar_flat_ft_csv_wrong_path = "FATP/monolith_solar_panel_flat_ft/csv/wrong"
+
 solar_left_ft_csv_path = "FATP/monolith_solar_panel_left_ft/csv"
+solar_left_ft_csv_wrong_path = "FATP/monolith_solar_panel_left_ft/csv/wrong"
+
 solar_right_ft_csv_path = "FATP/monolith_solar_panel_right_ft/csv"
+solar_right_ft_csv_wrong_path = "FATP/monolith_solar_panel_right_ft/csv/wrong"
 
 
 lyft_csv_format_header = [
@@ -64,11 +81,15 @@ lyft_csv_header_index_dict = {
     "test_station_id": 16,
 }
 
+# validate result output file header
+validate_result_header = ["file_path", "result", "DRI"]
+
 
 class lyft_csv_format_validate(object):
     def __init__(self, csv_files_folder_path):
         self.search_path = csv_files_folder_path
         self.csv_header = lyft_csv_format_header
+        self.output_result_header = validate_result_header
         self.header_index_dict = lyft_csv_header_index_dict
         self.current_csv_format_err_counter = 0
         self.length_uuid_section = [
@@ -78,12 +99,19 @@ class lyft_csv_format_validate(object):
             4,
             12,
         ]  # E058FB8C-D506-427B-8F1B-D0B03EDB477C
-        self.category_correct_csv_format_folder = os.path.join(
-            self.search_path, "correct"
-        )
-        self.mkdir(self.category_correct_csv_format_folder)
-        self.category_wrong_csv_format_folder = os.path.join(self.search_path, "wrong")
-        self.mkdir(self.category_wrong_csv_format_folder)
+
+        if not wrong_folder_validation:
+            self.category_correct_csv_format_folder = os.path.join(
+                self.search_path, "correct"
+            )
+            self.mkdir(self.category_correct_csv_format_folder)
+            self.category_wrong_csv_format_folder = os.path.join(
+                self.search_path, "wrong"
+            )
+            self.mkdir(self.category_wrong_csv_format_folder)
+
+        # create file to record validate result
+        # self.create_excel_output_validate_result()
 
     def mkdir(self, path):
         # print(sys._getframe().f_code.co_name)
@@ -93,6 +121,9 @@ class lyft_csv_format_validate(object):
             os.makedirs(path)
         # else:
         #     print("folder exist!")
+
+    def create_excel_output_validate_result(self):
+        creat_csv(self.search_path, self.output_result_header)
 
     def csv_header_check(self, csv_file):
         """
@@ -104,11 +135,13 @@ class lyft_csv_format_validate(object):
         if len(csv_header_read) != len(self.csv_header):
             print("Error - csv_header length mismatch!")
             self.current_csv_format_err_counter += 1
+            return False
         else:
             for i in range(0, len(self.csv_header)):
                 if csv_header_read[i] != self.csv_header[i]:
                     print("Error - csv_header[%d]: %s" % (i, csv_header_read[i]))
                     self.current_csv_format_err_counter += 1
+                    return False
 
     def record_index_check(self, csv_file):
         """
@@ -464,14 +497,20 @@ class lyft_csv_format_validate(object):
                     )
                     self.current_csv_format_err_counter += 1
 
-                if "FK" not in str(sn_column_list[i]) and "DEDK" not in str(
-                    sn_column_list[i]
+                if (
+                    "FK" not in str(sn_column_list[i])
+                    and "DEDK" not in str(sn_column_list[i])
+                    and "fk" not in str(sn_column_list[i])
+                    and "dedk" not in str(sn_column_list[i])
                 ):
                     print(
                         "Error - sn[%d]: %s - sn format incorrect"
                         % (i, sn_column_list[i])
                     )
-                elif len(str(sn_column_list[i])) < 15:
+                    self.current_csv_format_err_counter += 1
+                elif (
+                    len(str(sn_column_list[i])) < 15 or len(str(sn_column_list[i])) > 17
+                ):
                     print(
                         "Error - sn[%d]: %s - sn length incorrect"
                         % (i, sn_column_list[i])
@@ -568,6 +607,7 @@ class lyft_csv_format_validate(object):
             if "" == end_time_list[i] or pd.isna(end_time_list[i]):
                 print("Error: end_time[%d] date_time empty" % i)
                 self.current_csv_format_err_counter += 1
+                break
             elif ((i + 1) < row_cnt) and (end_time_list[i] != end_time_list[i + 1]):
                 print(
                     "Error: end_time[%d]: %s date_time different in column"
@@ -721,73 +761,138 @@ class lyft_csv_format_validate(object):
                     print("Error - row content empty")
                     self.current_csv_format_err_counter += 1
 
-                if self.current_csv_format_err_counter > 0:
-                    shutil.copy(full_file_name, self.category_wrong_csv_format_folder)
-                elif self.current_csv_format_err_counter == 0:
-                    shutil.copy(full_file_name, self.category_correct_csv_format_folder)
+                if not wrong_folder_validation:
+                    if self.current_csv_format_err_counter > 0:
+                        shutil.copy(
+                            full_file_name, self.category_wrong_csv_format_folder
+                        )
+                    elif self.current_csv_format_err_counter == 0:
+                        shutil.copy(
+                            full_file_name, self.category_correct_csv_format_folder
+                        )
+
                 self.current_csv_format_err_counter = 0
 
 
 if __name__ == "__main__":
-    # monolith_main_bft_csv_validate = lyft_csv_format_validate("./")
-    # monolith_main_bft_csv_validate.search_csv_log_check_format()
+    if not wrong_folder_validation:
+        # # PCBA - main_bft
+        # monolith_main_bft_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + main_bft_csv_path
+        # )
+        # monolith_main_bft_csv_validate.search_csv_log_check_format()
+        #
+        # # PCBA - main_flash
+        # monolith_main_flash_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + main_flash_csv_path
+        # )
+        # monolith_main_flash_csv_validate.search_csv_log_check_format()
+        #
+        # # PCBA - triangle
+        # monolith_triangle_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + triangle_bft_csv_path
+        # )
+        # monolith_triangle_csv_validate.search_csv_log_check_format()
+        #
+        # # cassette - leak
+        # monolith_cassette_leak_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + leak_ft_csv_path
+        # )
+        # monolith_cassette_leak_csv_validate.search_csv_log_check_format()
+        #
+        # # cassette - ft
+        # monolith_cassette_ft_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + cassette_ft_csv_path
+        # )
+        # monolith_cassette_ft_csv_validate.search_csv_log_check_format()
 
-    # # PCBA - main_bft
-    # monolith_main_bft_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + main_bft_csv_path
-    # )
-    # monolith_main_bft_csv_validate.search_csv_log_check_format()
+        # # receiver - ft
+        # monolith_receiver_ft_csv_validate = lyft_csv_format_validate(
+        #     csv_date_folder + receiver_ft_csv_path
+        # )
+        # monolith_receiver_ft_csv_validate.search_csv_log_check_format()
 
-    # # PCBA - main_flash
-    # monolith_main_flash_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + main_flash_csv_path
-    # )
-    # monolith_main_flash_csv_validate.search_csv_log_check_format()
+        # bollard - ft
+        monolith_bollard_ft_csv_validate = lyft_csv_format_validate(
+            csv_date_folder + bollard_ft_csv_path
+        )
+        monolith_bollard_ft_csv_validate.search_csv_log_check_format()
 
-    # # PCBA - triangle
-    # monolith_triangle_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + triangle_bft_csv_path
-    # )
-    # monolith_triangle_csv_validate.search_csv_log_check_format()
-    #
-    # # cassette - leak
-    # monolith_cassette_leak_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + leak_ft_csv_path
-    # )
-    # monolith_cassette_leak_csv_validate.search_csv_log_check_format()
-    #
-    # # cassette - ft
-    # monolith_cassette_ft_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + cassette_ft_csv_path
-    # )
-    # monolith_cassette_ft_csv_validate.search_csv_log_check_format()
+        # solar flat - ft
+        monolith_solar_flat_ft_csv_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_flat_ft_csv_path
+        )
+        monolith_solar_flat_ft_csv_validate.search_csv_log_check_format()
 
-    # # receiver - ft
-    # monolith_receiver_ft_csv_validate = lyft_csv_format_validate(
-    #     csv_date_folder + receiver_ft_csv_path
-    # )
-    # monolith_receiver_ft_csv_validate.search_csv_log_check_format()
+        # solar left - ft
+        monolith_solar_left_ft_csv_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_left_ft_csv_path
+        )
+        monolith_solar_left_ft_csv_validate.search_csv_log_check_format()
 
-    # bollard - ft
-    monolith_bollard_ft_csv_validate = lyft_csv_format_validate(
-        csv_date_folder + bollard_ft_csv_path
-    )
-    monolith_bollard_ft_csv_validate.search_csv_log_check_format()
+        # solar right - ft
+        monolith_solar_right_ft_csv_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_right_ft_csv_path
+        )
+        monolith_solar_right_ft_csv_validate.search_csv_log_check_format()
+    else:
+        ########### wrong format double check ########
+        # PCBA - main_bft
+        # monolith_main_bft_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + main_bft_csv_wrong_path
+        # )
+        # monolith_main_bft_csv_wrong_validate.search_csv_log_check_format()
+        #
+        # # PCBA - main_flash
+        # monolith_main_flash_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + main_flash_csv_wrong_path
+        # )
+        # monolith_main_flash_csv_wrong_validate.search_csv_log_check_format()
+        #
+        # # PCBA - triangle
+        # monolith_triangle_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + triangle_bft_csv_wrong_path
+        # )
+        # monolith_triangle_csv_wrong_validate.search_csv_log_check_format()
+        #
+        # # cassette - leak
+        # monolith_cassette_leak_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + leak_ft_csv_wrong_path
+        # )
+        # monolith_cassette_leak_csv_wrong_validate.search_csv_log_check_format()
+        #
+        # # cassette - ft
+        # monolith_cassette_ft_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + cassette_ft_csv_wrong_path
+        # )
+        # monolith_cassette_ft_csv_wrong_validate.search_csv_log_check_format()
 
-    # solar flat - ft
-    monolith_solar_flat_ft_csv_validate = lyft_csv_format_validate(
-        csv_date_folder + solar_flat_ft_csv_path
-    )
-    monolith_solar_flat_ft_csv_validate.search_csv_log_check_format()
+        # # receiver - ft
+        # monolith_receiver_ft_csv_wrong_validate = lyft_csv_format_validate(
+        #     csv_date_folder + receiver_ft_csv_wrong_path
+        # )
+        # monolith_receiver_ft_csv_wrong_validate.search_csv_log_check_format()
+        #
+        # bollard - ft
+        monolith_bollard_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + bollard_ft_csv_wrong_path
+        )
+        monolith_bollard_ft_csv_wrong_validate.search_csv_log_check_format()
 
-    # solar left - ft
-    monolith_solar_left_ft_csv_validate = lyft_csv_format_validate(
-        csv_date_folder + solar_left_ft_csv_path
-    )
-    monolith_solar_left_ft_csv_validate.search_csv_log_check_format()
+        # solar flat - ft
+        monolith_solar_flat_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_flat_ft_csv_wrong_path
+        )
+        monolith_solar_flat_ft_csv_wrong_validate.search_csv_log_check_format()
 
-    # solar right - ft
-    monolith_solar_right_ft_csv_validate = lyft_csv_format_validate(
-        csv_date_folder + solar_right_ft_csv_path
-    )
-    monolith_solar_right_ft_csv_validate.search_csv_log_check_format()
+        # solar left - ft
+        monolith_solar_left_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_left_ft_csv_wrong_path
+        )
+        monolith_solar_left_ft_csv_wrong_validate.search_csv_log_check_format()
+
+        # solar right - ft
+        monolith_solar_right_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + solar_right_ft_csv_wrong_path
+        )
+        monolith_solar_right_ft_csv_wrong_validate.search_csv_log_check_format()
