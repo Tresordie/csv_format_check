@@ -1,0 +1,14 @@
+***************
+Station: monolith_bollard_ft
+FixtureID: 1
+SN: FK2325MFAT2AA002C
+***************
+1.****MES_101_Command_Send****
+Start:12:25:14
+End:12:25:14
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.003995
+CT:CMD:101;STA236YM5301;5031;10023020;FK2325MFAT2AA002C;
+Output:NG;Not Find The Emp_NO( 5031)

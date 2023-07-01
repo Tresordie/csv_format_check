@@ -1,0 +1,26 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: 112233
+***************
+1.****Power_Off_12V****
+Start:12:32:09
+End:12:32:10
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:12:32:10
+End:12:32:10
+Retrt:0
+Result:Pass
+Value:
+
+3.****TST_LPCD_Current_Config****
+Start:12:32:15
+End:12:32:21
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:6.127719

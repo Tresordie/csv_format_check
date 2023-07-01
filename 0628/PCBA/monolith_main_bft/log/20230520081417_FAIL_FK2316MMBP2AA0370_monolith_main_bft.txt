@@ -1,0 +1,22 @@
+batt_SIFO
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2316MMBP2AA0370
+***************
+1.****____TST_MES_101_Command____****
+Start:08:14:16
+End:08:14:16
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:08:14:16
+End:08:14:16
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.015005
+CT:CMD:101;STT234MM01-1;34483;10023100;FK2316MMBP2AA0370;
+Output:NG;SN/CSN(FK2316MMBP2AA0370) WO COMPLETE No-Charge

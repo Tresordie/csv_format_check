@@ -1,0 +1,39 @@
+***************
+Station: monolith_bollard_ft
+FixtureID: 1
+SN: FK2326MFAT2AA0030
+***************
+1.****MES_101_Command_Send****
+Start:20:37:16
+End:20:37:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.007011
+CT:CMD:101;STA236YM5301;1961113;10023020;FK2326MFAT2AA0030;
+Output:OK;OK;
+2.****____Power_On_12V____****
+Start:20:37:17
+End:20:37:17
+Retrt:0
+Result:Pass
+Value:
+CT:
+3.****Power_On_Recovery_12V****
+Start:20:37:17
+End:20:37:17
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****opmode_force_dev_mode****
+Start:20:37:52
+End:20:38:53
+Retrt:0
+Result:Fail
+Value:FAIL
+Addition:60.580422
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+Output:-- ROUTINE FAIL --
+run routine: {} Did not receive response in time. P2 timeout time has expired (timeout=20.000 sec)
+

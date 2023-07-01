@@ -1,0 +1,578 @@
+***************
+Station: monolith_cassette_ft
+FixtureID: 1
+SN: FK2323MCAM2AA0041
+***************
+1.****____TST_MES_101_Command____****
+Start:18:22:36
+End:18:22:36
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:18:22:36
+End:18:22:36
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.006996
+CT:CMD:101;RTQ236YM4201;52346;10023023;FK2323MCAM2AA0041;
+Output:OK;OK;
+3.****____Draw_Close____****
+Start:18:22:36
+End:18:22:36
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Draw_Close****
+Start:18:22:36
+End:18:22:36
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.111094
+CT:
+5.****Draw_Close_Status****
+Start:18:22:38
+End:18:22:39
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.110214
+CT:PASS
+6.****____Power_On____****
+Start:18:22:39
+End:18:22:39
+Retrt:0
+Result:Pass
+Value:
+CT:
+7.****Power_On_12V****
+Start:18:22:39
+End:18:22:40
+Retrt:0
+Result:Pass
+Value:
+Addition:1.671007
+CT:
+8.****opmode_force_dev_mode****
+Start:18:23:00
+End:18:23:01
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.224284
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+-- ROUTINE PASS --
+
+9.****____TST_FW____****
+Start:18:23:05
+End:18:23:05
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****FW_Version****
+Start:18:23:05
+End:18:23:06
+Retrt:0
+Result:Pass
+Value:2023.15.103
+Addition:0.893488
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data version"
+Output:version: (2023, 15, 103)
+
+11.****____TST_HW____****
+Start:18:23:06
+End:18:23:06
+Retrt:0
+Result:Pass
+Value:
+CT:
+12.****HW_Version****
+Start:18:23:06
+End:18:23:07
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:0.928467
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: Solar
+
+13.****____TST_LTE____****
+Start:18:23:07
+End:18:23:07
+Retrt:0
+Result:Pass
+Value:
+CT:
+14.****disable_modem****
+Start:18:23:07
+End:18:23:09
+Retrt:0
+Result:Pass
+Value:-
+Addition:2.008844
+CT:
+15.****disable_modem****
+Start:18:23:12
+End:18:23:14
+Retrt:0
+Result:Pass
+Value:-
+Addition:2.016863
+CT:
+16.****____TST_Battery____****
+Start:18:23:15
+End:18:23:15
+Retrt:0
+Result:Pass
+Value:
+CT:
+17.****BQ_charger_ON****
+Start:18:23:15
+End:18:23:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.094373
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_on"
+-- ROUTINE PASS --
+
+18.****TST_Battery2****
+Start:18:23:20
+End:18:23:22
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.134396
+CT:  adc_sol_v: 0.000 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 2.592 V
+  adc_bat_i: 091453.0 uA
+  adc_lte_i: 00.000 uA
+  adc_75v_v: 24.460 V
+  adc_mcu_temp_c: 25.000 C
+  adc_ntc1_v: 0.000 V
+  adc_ntc2_v: 0.000 V
+-- ROUTINE PASS --
+
+19.****TST_Battery2_V****
+Start:18:23:22
+End:18:23:22
+Retrt:0
+Result:Pass
+Value:2.592
+Addition:0.000000
+CT:CMD:Battery_Voltage_Read2:
+Output:2.592V
+20.****TST_Battery2_C****
+Start:18:23:22
+End:18:23:22
+Retrt:0
+Result:Pass
+Value:091453.0
+Addition:0.000000
+CT:CMD:Battery_Current_Read2:
+Output:091453.0uA
+21.****charge_status****
+Start:18:23:22
+End:18:23:23
+Retrt:0
+Result:Pass
+Value:1
+Addition:1.095359
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_charge_status"
+Output:Status: 1
+-- ROUTINE PASS --
+
+22.****____TST_TEMP____****
+Start:18:23:23
+End:18:23:23
+Retrt:0
+Result:Pass
+Value:
+CT:
+23.****temp_by_mcu_sensor_Vbatt_and_RP12V****
+Start:18:23:23
+End:18:23:24
+Retrt:0
+Result:Pass
+Value:26.000
+Addition:1.131339
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine get_power_info"
+Output:  adc_sol_v: 0.000 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 2.596 V
+  adc_bat_i: 091453.0 uA
+  adc_lte_i: 90046.000 uA
+  adc_75v_v: 46.182 V
+  adc_mcu_temp_c: 26.000 C
+  adc_ntc1_v: 0.000 V
+  adc_ntc2_v: 0.000 V
+-- ROUTINE PASS --
+
+24.****____TST_Speaker____****
+Start:18:23:24
+End:18:23:24
+Retrt:0
+Result:Pass
+Value:
+CT:
+25.****Speaker_Previous****
+Start:18:23:24
+End:18:23:27
+Retrt:0
+Result:Pass
+Value:46.866667
+Addition:3.494569
+CT:46.866667
+26.****Play_Audio_Frequency****
+Start:18:23:27
+End:18:23:28
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.103354
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine play_audio_freq"
+-- ROUTINE PASS --
+
+27.****Speaker_Measurement****
+Start:18:23:31
+End:18:23:32
+Retrt:0
+Result:Pass
+Value:92.100000
+Addition:0.695638
+CT:92.100000
+28.****Speaker_Result****
+Start:18:23:32
+End:18:23:32
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.021975
+CT:SPL_Measure92.100000%SPL_Previous46.866667%
+29.****Play_Audio_Stop****
+Start:18:23:34
+End:18:23:35
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.093373
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine stop_audio"
+-- ROUTINE PASS --
+
+30.****____Set Factory_Mode_On____****
+Start:18:23:37
+End:18:23:37
+Retrt:0
+Result:Pass
+Value:
+CT:
+31.****modem_disable_status****
+Start:18:23:37
+End:18:23:40
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.000228
+CT:read_data modem_data_is_enabled
+modem_data_is_enabled: (0,)
+
+32.****factory_mode_on****
+Start:18:23:40
+End:18:23:43
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.999825
+CT:run_routine modem_at_command AT+QRFTESTMODE=1
+OK
+-- ROUTINE PASS --
+
+33.****____TST_LTE_Band2____****
+Start:18:23:44
+End:18:23:44
+Retrt:0
+Result:Pass
+Value:
+CT:
+34.****Set LTE_19199****
+Start:18:23:44
+End:18:23:45
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.310249
+CT:run_routine modem_at_command AT+QRFTEST= \"LTE BAND2\",19199,\"ON\",50,1
+ALL IS UP
+OK
+-- ROUTINE PASS --
+
+35.****LTE_19199_Power****
+Start:18:24:04
+End:18:24:07
+Retrt:0
+Result:Pass
+Value:-19.700180
+Addition:3.064640
+CT:Frequency1.910000%Amplirtude-19.700180
+36.****LTE_19199_Frequency****
+Start:18:24:08
+End:18:24:11
+Retrt:0
+Result:Pass
+Value:1.910000
+Addition:3.060756
+CT:Frequency1.910000%Amplirtude-19.679291
+37.****____TST_LTE_Band12____****
+Start:18:24:12
+End:18:24:12
+Retrt:0
+Result:Pass
+Value:
+CT:
+38.****Set LTE_23010****
+Start:18:24:12
+End:18:24:14
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.665995
+CT:run_routine modem_at_command AT+QRFTEST= \"LTE BAND12\",23010,\"ON\",50,1
+ALL IS UP
+OK
+-- ROUTINE PASS --
+
+39.****LTE_23010_Power****
+Start:18:24:37
+End:18:24:40
+Retrt:0
+Result:Pass
+Value:-37.819511
+Addition:3.070141
+CT:Frequency0.699100%Amplirtude-37.819511
+40.****LTE_23010_Frequency****
+Start:18:24:41
+End:18:24:44
+Retrt:0
+Result:Pass
+Value:0.699100
+Addition:3.055258
+CT:Frequency0.699100%Amplirtude-37.726334
+41.****Set LTE_23179****
+Start:18:24:45
+End:18:24:47
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.646839
+CT:run_routine modem_at_command AT+QRFTEST= \"LTE BAND12\",23179,\"ON\",50,1
+ALL IS UP
+OK
+-- ROUTINE PASS --
+
+42.****LTE_23179_Power****
+Start:18:25:10
+End:18:25:13
+Retrt:0
+Result:Pass
+Value:-28.277275
+Addition:3.064646
+CT:Frequency0.716000%Amplirtude-28.277275
+43.****LTE_23179_Frequency****
+Start:18:25:14
+End:18:25:17
+Retrt:0
+Result:Pass
+Value:0.716000
+Addition:3.068234
+CT:Frequency0.716000%Amplirtude-28.313957
+44.****____Set Factory_Mode_Off____****
+Start:18:25:18
+End:18:25:18
+Retrt:0
+Result:Pass
+Value:
+CT:
+45.****factory_mode_off****
+Start:18:25:18
+End:18:25:21
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.000531
+CT:run_routine modem_at_command AT+QRFTESTMODE=0
+OK
+-- ROUTINE PASS --
+
+46.****enable_modem****
+Start:18:25:21
+End:18:25:22
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.894489
+CT:
+47.****modem_enable_status****
+Start:18:25:22
+End:18:25:23
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.875498
+CT:modem_data_is_enabled: (1,)
+
+48.****____TST_NFC____****
+Start:18:25:25
+End:18:25:25
+Retrt:0
+Result:Pass
+Value:
+CT:
+49.****NFC_In****
+Start:18:25:25
+End:18:25:25
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.131732
+CT:
+50.****NFC_IN_Status****
+Start:18:25:27
+End:18:25:27
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.111342
+CT:PASS
+51.****Triangle_NFC_Run_Test****
+Start:18:25:27
+End:18:25:28
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.102366
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_rideable_run"
+-- ROUTINE PASS --
+
+52.****NFC_Detect_Measurement****
+Start:18:25:30
+End:18:25:31
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.094373
+CT:NFC Taps Detected 1
+-- ROUTINE PASS --
+-- ROUTINE PASS --
+
+53.****____NFC_Out____****
+Start:18:25:31
+End:18:25:32
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.127141
+CT:
+54.****____TST_SIM_Card____****
+Start:18:25:32
+End:18:25:32
+Retrt:0
+Result:Pass
+Value:
+CT:
+55.****Set_modem_on****
+Start:18:25:32
+End:18:25:33
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.085374
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine set_modem_on"
+-- ROUTINE PASS --
+
+56.****Check_network_connected****
+Start:18:25:35
+End:18:25:36
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.092376
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine network_connected"
+Status: 0
+-- ROUTINE PASS --
+
+57.****IMEI****
+Start:18:25:38
+End:18:25:39
+Retrt:0
+Result:Pass
+Value:869965065815643
+Addition:0.895495
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data modem_imei"
+Output:modem_imei: (869965065815643,)
+
+58.****ICCID****
+Start:18:25:39
+End:18:25:40
+Retrt:0
+Result:Pass
+Value:89430301722235532015
+Addition:0.888478
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data modem_iccid"
+Output:modem_iccid: 89430301722235532015
+
+59.****opmode_clear_forced_state****
+Start:18:25:40
+End:18:25:41
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.100360
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_clear_forced_state"
+-- ROUTINE PASS --
+
+60.****____Set ship mode____****
+Start:18:25:44
+End:18:25:44
+Retrt:0
+Result:Pass
+Value:
+CT:
+61.****Enter_Shipmode****
+Start:18:25:44
+End:18:25:45
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.093389
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine enter_shipmode"
+-- ROUTINE PASS --
+
+62.****Power_Off_12V****
+Start:18:25:47
+End:18:25:49
+Retrt:0
+Result:Pass
+Value:
+Addition:1.710401
+CT:
+63.****____Draw_Open____****
+Start:18:25:59
+End:18:25:59
+Retrt:0
+Result:Pass
+Value:
+CT:
+64.****Draw_Open****
+Start:18:25:59
+End:18:25:59
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.130404
+CT:

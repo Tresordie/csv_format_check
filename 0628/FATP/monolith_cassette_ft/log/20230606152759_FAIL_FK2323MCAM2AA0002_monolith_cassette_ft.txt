@@ -1,0 +1,69 @@
+***************
+Station: monolith_cassette_ft
+FixtureID: 1
+SN: FK2323MCAM2AA0002
+***************
+1.****____TST_MES_101_Command____****
+Start:15:26:25
+End:15:26:25
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:15:26:25
+End:15:26:25
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.023021
+CT:CMD:101;STQ236YM4101;1961113;10023023;FK2323MCAM2AA0002;
+Output:OK;OK;
+3.****____Draw_Close____****
+Start:15:26:25
+End:15:26:25
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Draw_Close****
+Start:15:26:25
+End:15:26:25
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.112054
+CT:
+5.****Draw_Close_Status****
+Start:15:26:28
+End:15:26:31
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.164263
+CT:PASS
+6.****____Power_On____****
+Start:15:26:31
+End:15:26:31
+Retrt:0
+Result:Pass
+Value:
+CT:
+7.****Power_On_12V****
+Start:15:26:31
+End:15:26:32
+Retrt:0
+Result:Pass
+Value:
+Addition:1.672468
+CT:
+8.****opmode_force_dev_mode****
+Start:15:26:52
+End:15:27:54
+Retrt:0
+Result:Fail
+Value:FAIL
+Addition:61.133985
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+-- ROUTINE FAIL --
+run routine: {} Did not receive response in time. P2 timeout time has expired (timeout=20.000 sec)

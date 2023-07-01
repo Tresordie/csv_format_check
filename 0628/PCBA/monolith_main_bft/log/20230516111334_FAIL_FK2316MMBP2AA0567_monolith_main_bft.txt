@@ -1,0 +1,274 @@
+batt_SIFO
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2316MMBP2AA0567
+***************
+1.****____TST_MES_101_Command____****
+Start:11:12:58
+End:11:12:58
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:11:12:58
+End:11:12:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.022986
+CT:CMD:101;STT234MM01-1;2062055;10023100;FK2316MMBP2AA0567;
+Output:OK;OK;
+3.****____TST_Flash____****
+Start:11:12:58
+End:11:12:58
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Enable_Vbat_THERM****
+Start:11:12:58
+End:11:12:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+5.****Connect_STLink_1****
+Start:11:12:58
+End:11:12:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+6.****Power_On_DC_3V7****
+Start:11:13:00
+End:11:13:00
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+7.****Voltage_PP4V2_SYS****
+Start:11:13:03
+End:11:13:03
+Retrt:0
+Result:Pass
+Value:3.706800
+Addition:0.235878
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(3706.80 mV;DONE)~_~
+8.****Voltage_PP1V8_LDO****
+Start:11:13:03
+End:11:13:03
+Retrt:0
+Result:Pass
+Value:1.794650
+Addition:0.239193
+CT:CMD:Read MUX Vol(ch7)
+Output:ACK(1794.65 mV;DONE)~_~
+9.****Unlock_MCU_Write_Protect****
+Start:11:13:03
+End:11:13:03
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.24
+CT:CMD:cmd /c  STM32_Programmer_CLI -c port=swd mode=UR -ob rdp=0xaa pcrop_rdp=0
+Output:
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+UPLOADING OPTION BYTES DATA ...
+
+  Bank          : 0x00
+  Address       : 0x40022020
+  Size          : 20 Bytes
+
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+  Bank          : 0x01
+  Address       : 0x40022044
+  Size          : 16 Bytes
+
+
+
+
+PROGRAMMING OPTION BYTES AREA ...
+Warning: Option Byte: pcrop_rdp, value: 0x0, was not modified.
+Warning: Option Byte: rdp, value: 0xAA, was not modified.
+
+Warning: Option Bytes are unchanged, Data won't be downloaded
+Time elapsed during option Bytes configuration: 00:00:00.000
+
+10.****Disconnect_STLink_1****
+Start:11:13:03
+End:11:13:03
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+11.****Power_Off_DC_3V7****
+Start:11:13:04
+End:11:13:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+12.****Connect_STLink_1****
+Start:11:13:06
+End:11:13:06
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+13.****Power_On_DC_3V7****
+Start:11:13:07
+End:11:13:07
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+14.****Flash_STLink****
+Start:11:13:08
+End:11:13:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:8.68
+CT:CMD:cmd /c STM32_Programmer_CLI -c port=swd mode=UR -e all && STM32_Programmer_CLI -c port=swd mode=UR reset=HWrst --skipErase -w  D:\Firmware\monolith_pcba_test_with_bl-2023.15.105.hex -hardRst
+Output:      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+Mass erase ... 
+
+Mass erase successfully achieved
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: monolith_pcba_test_with_bl-2023.15.105.hex
+  File          : monolith_pcba_test_with_bl-2023.15.105.hex
+  Size          : 432.55 KB 
+  Address       : 0x08000000 
+
+
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€€€ 21%€€€€€€€€€€€ 42%€€€€€€€€€€€ 64%€€€€€€€€€€ 85%€€€€€€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:08.283
+
+Hard reset is performed
+
+15.****Disconnect_STLink_1****
+Start:11:13:17
+End:11:13:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+16.****Power_Off_DC_3V7****
+Start:11:13:17
+End:11:13:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+17.****____Power_On____****
+Start:11:13:18
+End:11:13:18
+Retrt:0
+Result:Pass
+Value:
+CT:
+18.****Power_On_DC_3V7****
+Start:11:13:18
+End:11:13:18
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+19.****____TST_FW_Version____****
+Start:11:13:29
+End:11:13:29
+Retrt:0
+Result:Pass
+Value:
+CT:
+20.****FW_Version****
+Start:11:13:29
+End:11:13:33
+Retrt:0
+Result:Fail
+Value:
+Addition:4.089853
+CT:CMD:test fw_version
+

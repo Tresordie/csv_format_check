@@ -1,0 +1,61 @@
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2316MMBP2AA0141
+***************
+1.****____TST_MES_101_Command____****
+Start:18:34:30
+End:18:34:30
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:18:34:30
+End:18:34:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.016006
+CT:CMD:101;STT234MM01;34483;10023100;FK2316MMBP2AA0141;
+Output:OK;OK;
+3.****____TST_Flash____****
+Start:18:34:30
+End:18:34:30
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Enable_Vbat_THERM****
+Start:18:34:30
+End:18:34:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+5.****Connect_STLink_1****
+Start:18:34:30
+End:18:34:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+6.****Power_On_DC_3V7****
+Start:18:34:32
+End:18:34:32
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+7.****Voltage_PP4V2_SYS****
+Start:18:34:34
+End:18:34:34
+Retrt:0
+Result:Fail
+Value:0.993340
+Addition:0.235596
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(993.34 mV;DONE)~_~

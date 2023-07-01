@@ -1,0 +1,21 @@
+***************
+Station: monolith_cassette_ft
+FixtureID: 1
+SN: FK2323MCAM2AA002C
+***************
+1.****____TST_MES_101_Command____****
+Start:09:24:35
+End:09:24:35
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:09:24:35
+End:09:24:35
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.007997
+CT:CMD:101;STQ236YM4103;1961113;10023023;FK2323MCAM2AA002C;
+Output:NG;PROCESS ERROR: (FK2323MCAM2AA002C)(KS-LINK-Triangle NFC)

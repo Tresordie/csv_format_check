@@ -1,0 +1,5 @@
+***************
+Station: monolith_bollar_ft
+FixtureID: 1
+SN: FK2309MFAT1AA0001
+***************

@@ -1,0 +1,53 @@
+***************
+Station: monolith_cassette_ft
+FixtureID: 1
+SN: 111
+***************
+1.****____Draw_Close____****
+Start:09:21:20
+End:09:21:20
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****Draw_Close****
+Start:09:21:20
+End:09:21:20
+Retrt:0
+Result:Pass
+Value:-
+Addition:0.102441
+CT:
+3.****Draw_Close_Status****
+Start:09:21:22
+End:09:21:25
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.132988
+CT:PASS
+4.****____Power_On____****
+Start:09:21:25
+End:09:21:25
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****Power_On_12V****
+Start:09:21:25
+End:09:21:27
+Retrt:0
+Result:Pass
+Value:
+Addition:1.745570
+CT:
+6.****opmode_force_dev_mode****
+Start:09:21:47
+End:09:22:48
+Retrt:0
+Result:Fail
+Value:FAIL
+Addition:61.007377
+CT:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+-- ROUTINE FAIL --
+run routine: {} Did not receive response in time. P2 timeout time has expired (timeout=20.000 sec)

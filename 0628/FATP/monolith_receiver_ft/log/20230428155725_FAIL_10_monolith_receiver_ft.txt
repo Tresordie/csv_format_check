@@ -1,0 +1,57 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: 10
+***************
+1.****Power_Off_12V****
+Start:15:56:56
+End:15:56:57
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:15:56:57
+End:15:56:57
+Retrt:0
+Result:Pass
+Value:
+
+3.****____Check_Product_Right_Tray____****
+Start:15:57:02
+End:15:57:02
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Check_Product_Right_Tray****
+Start:15:57:02
+End:15:57:14
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:11.543972
+CT:
+5.****____TST_Passive antenna measurement____****
+Start:15:57:14
+End:15:57:14
+Retrt:0
+Result:Pass
+Value:
+CT:
+6.****ANT_resonant_frequency****
+Start:15:57:14
+End:15:57:23
+Retrt:0
+Result:Pass
+Value:13.5
+Addition:9.121092
+CT:Q_Value:13.5
+7.****Q_Factor_Value****
+Start:15:57:23
+End:15:57:23
+Retrt:0
+Result:Fail
+Value:41.0334
+Addition:0.000000
+CT:Q_Value:41.0334

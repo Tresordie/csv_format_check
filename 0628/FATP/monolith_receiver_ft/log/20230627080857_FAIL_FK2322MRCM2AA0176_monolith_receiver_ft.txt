@@ -1,0 +1,43 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: FK2322MRCM2AA0176
+***************
+1.****Power_Off_12V****
+Start:08:08:49
+End:08:08:49
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:08:08:49
+End:08:08:50
+Retrt:0
+Result:Pass
+Value:
+
+3.****TST_LPCD_Current_Config****
+Start:08:08:55
+End:08:08:55
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.229996
+
+4.****____TST_MES_101_Command____****
+Start:08:08:55
+End:08:08:55
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****MES_101_Command_Send****
+Start:08:08:55
+End:08:08:55
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.018989
+CT:CMD:101;STA236YM5301;1961113;10023006;FK2322MRCM2AA0176;
+Output:NG;WO Different,SN WO = (RTQ236YM3401)

@@ -1,0 +1,86 @@
+batt_SIFO
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2324MMBC1AA0127
+***************
+1.****E-power-turn OFF 75V****
+Start:09:21:08
+End:09:21:08
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+2.****E-power-turn OFF 58V****
+Start:09:21:12
+End:09:21:12
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+3.****Power_Off_DC_3V7****
+Start:09:21:15
+End:09:21:15
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+4.****____TST_MES_101_Command____****
+Start:09:21:16
+End:09:21:16
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****MES_101_Command_Send****
+Start:09:21:16
+End:09:21:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.009006
+CT:CMD:101;STT234MC01;34483;10023100;FK2324MMBC1AA0127;
+Output:OK;OK;
+6.****____TST_Flash____****
+Start:09:21:16
+End:09:21:16
+Retrt:0
+Result:Pass
+Value:
+CT:
+7.****Enable_Vbat_THERM****
+Start:09:21:16
+End:09:21:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+8.****Connect_STLink_1****
+Start:09:21:16
+End:09:21:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+9.****Power_On_DC_3V7****
+Start:09:21:18
+End:09:21:18
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+10.****Voltage_PP4V2_SYS****
+Start:09:21:21
+End:09:21:21
+Retrt:0
+Result:Fail
+Value:0.009970
+Addition:0.245725
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(9.97 mV;DONE)~_~

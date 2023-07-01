@@ -1,0 +1,43 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: FK2322MRCM2AA0202
+***************
+1.****Power_Off_12V****
+Start:14:45:07
+End:14:45:08
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:14:45:08
+End:14:45:09
+Retrt:0
+Result:Pass
+Value:
+
+3.****TST_LPCD_Current_Config****
+Start:14:45:14
+End:14:45:14
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.304119
+
+4.****____TST_MES_101_Command____****
+Start:14:45:14
+End:14:45:14
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****MES_101_Command_Send****
+Start:14:45:14
+End:14:45:14
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.015997
+CT:CMD:101;;;10023006;FK2322MRCM2AA0202;
+Output:NG;WO() WO ERR

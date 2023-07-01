@@ -1,0 +1,1370 @@
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2316MMBP2AA0614
+***************
+1.****____TST_MES_101_Command____****
+Start:18:12:42
+End:18:12:42
+Retrt:0
+Result:Pass
+Value:
+CT:
+2.****MES_101_Command_Send****
+Start:18:12:42
+End:18:12:42
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.018051
+CT:CMD:101;STT234MM01;34483;10023100;FK2316MMBP2AA0614;
+Output:OK;OK;
+3.****____TST_Flash____****
+Start:18:12:42
+End:18:12:42
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Enable_Vbat_THERM****
+Start:18:12:42
+End:18:12:42
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+5.****Connect_STLink_1****
+Start:18:12:42
+End:18:12:42
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+6.****Power_On_DC_3V7****
+Start:18:12:44
+End:18:12:44
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+7.****Voltage_PP4V2_SYS****
+Start:18:12:46
+End:18:12:47
+Retrt:0
+Result:Pass
+Value:3.701040
+Addition:0.236808
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(3701.04 mV;DONE)~_~
+8.****Voltage_PP1V8_LDO****
+Start:18:12:47
+End:18:12:47
+Retrt:0
+Result:Pass
+Value:1.813760
+Addition:0.246432
+CT:CMD:Read MUX Vol(ch7)
+Output:ACK(1813.76 mV;DONE)~_~
+9.****Unlock_MCU_Write_Protect****
+Start:18:12:47
+End:18:12:47
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.24
+CT:CMD:cmd /c  STM32_Programmer_CLI -c port=swd mode=UR -ob rdp=0xaa pcrop_rdp=0
+Output:
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+UPLOADING OPTION BYTES DATA ...
+
+  Bank          : 0x00
+  Address       : 0x40022020
+  Size          : 20 Bytes
+
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+  Bank          : 0x01
+  Address       : 0x40022044
+  Size          : 16 Bytes
+
+
+
+
+PROGRAMMING OPTION BYTES AREA ...
+Warning: Option Byte: pcrop_rdp, value: 0x0, was not modified.
+Warning: Option Byte: rdp, value: 0xAA, was not modified.
+
+Warning: Option Bytes are unchanged, Data won't be downloaded
+Time elapsed during option Bytes configuration: 00:00:00.001
+
+10.****Load_Recovery_Image****
+Start:18:12:47
+End:18:12:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:10.61
+CT:CMD:cmd /c  STM32_Programmer_CLI -c port=swd freq=4000 mode=UR -w ./20230202/monolith_recovery_encrypted-2023.15.103.bin 0x900CE000 -el ./20230202/loader.stldr
+Output:
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: monolith_recovery_encrypted-2023.15.103.bin
+  File          : monolith_recovery_encrypted-2023.15.103.bin
+  Size          : 489.48 KB 
+  Address       : 0x900CE000 
+
+
+Erasing memory corresponding to segment 0:
+Erasing external memory sectors [206 328]
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€ 17%€€€€€€€€€ 34%€€€€€€€€ 51%€€€€€€€€€ 68%€€€€€€€€ 85%€€€€€€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:10.487
+
+11.****Load_LFS_EXT_Asset****
+Start:18:12:58
+End:18:13:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:17.91
+CT:CMD:cmd /c  STM32_Programmer_CLI -c port=swd freq=4000 mode=UR -w ./20230202/monolith_lfs_ext_flash_assets-2023.15.103.bin 0x9019C000 -el ./20230202/loader.stldr
+Output:
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: monolith_lfs_ext_flash_assets-2023.15.103.bin
+  File          : monolith_lfs_ext_flash_assets-2023.15.103.bin
+  Size          : 835.00 KB 
+  Address       : 0x9019C000 
+
+
+Erasing memory corresponding to segment 0:
+Erasing external memory sectors [412 620]
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€ 10%€€€€€ 20%€€€€€ 30%€€€€€ 40%€€€€€ 50%€€€€€ 60%€€€€€ 70%€€€€€ 80%€€€€€ 90%€€€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:17.662
+
+12.****Disconnect_STLink_1****
+Start:18:13:16
+End:18:13:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+13.****Power_Off_DC_3V7****
+Start:18:13:17
+End:18:13:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+14.****Connect_STLink_1****
+Start:18:13:18
+End:18:13:18
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+15.****Power_On_DC_3V7****
+Start:18:13:19
+End:18:13:19
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+16.****Flash_STLink****
+Start:18:13:21
+End:18:13:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:8.70
+CT:CMD:cmd /c STM32_Programmer_CLI -c port=swd mode=UR -e all && STM32_Programmer_CLI -c port=swd mode=UR reset=HWrst --skipErase -w  D:\Firmware\monolith_pcba_test_with_bl-2023.15.105.hex -hardRst
+Output:      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.77V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+Mass erase ... 
+
+Mass erase successfully achieved
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: monolith_pcba_test_with_bl-2023.15.105.hex
+  File          : monolith_pcba_test_with_bl-2023.15.105.hex
+  Size          : 432.55 KB 
+  Address       : 0x08000000 
+
+
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€€€ 21%€€€€€€€€€€€ 42%€€€€€€€€€€€ 64%€€€€€€€€€€ 85%€€€€€€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:08.301
+
+Hard reset is performed
+
+17.****Disconnect_STLink_1****
+Start:18:13:30
+End:18:13:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+18.****Power_Off_DC_3V7****
+Start:18:13:30
+End:18:13:30
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+19.****____Power_On____****
+Start:18:13:31
+End:18:13:31
+Retrt:0
+Result:Pass
+Value:
+CT:
+20.****Power_On_DC_3V7****
+Start:18:13:31
+End:18:13:31
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+21.****____TST_FW_Version____****
+Start:18:13:42
+End:18:13:42
+Retrt:0
+Result:Pass
+Value:
+CT:
+22.****FW_Version****
+Start:18:13:42
+End:18:13:46
+Retrt:0
+Result:Pass
+Value:2023.15.105
+Addition:4.075457
+CT:CMD:test fw_version
+FW Version: 2023.15.105
+	[SUCCESS]
+
+23.****____TST_HW_Version____****
+Start:18:13:46
+End:18:13:46
+Retrt:0
+Result:Pass
+Value:
+CT:
+24.****Hw_Version****
+Start:18:13:46
+End:18:13:49
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:3.101587
+CT:CMD:test hw_version
+HW Version: Solar
+	[SUCCESS]
+
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Kh[110D[7C[6C[Kw[110D[7C[7C[K_[110D[7C[8C[Kv[110D[7C[9C[Ke[110D[7C[10C[Kr[110D[7C[11C[Ks[110D[7C[12C[Ki[110D[7C[13C[Ko[110D[7C[14C[Kn[110D[7C[15C
+lyft > 
+TEST 2 - hw_version
+	VALIDATING
+	HW Version: Solar
+	[SUCCESS]
+
+25.****____TST_Vbatt____****
+Start:18:13:49
+End:18:13:49
+Retrt:0
+Result:Pass
+Value:
+CT:
+26.****Vbat****
+Start:18:13:49
+End:18:13:52
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.063369
+CT:CMD:test batt_sense
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Kb[110D[7C[6C[Ka[110D[7C[7C[Kt[110D[7C[8C[Kt[110D[7C[9C[K_[110D[7C[10C[Ks[110D[7C[11C[Ke[110D[7C[12C[Kn[110D[7C[13C[Ks[110D[7C[14C[Ke[110D[7C[15C
+lyft > 
+TEST 5 - batt_sense
+	RUNNING
+	VALIDATING
+	[SUCCESS]
+
+27.****____TST_lte_modem_status____****
+Start:18:13:52
+End:18:13:52
+Retrt:0
+Result:Pass
+Value:
+CT:
+28.****lte_modem_status****
+Start:18:13:52
+End:18:14:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:12.102704
+CT:CMD:test modem_status
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Km[110D[7C[6C[Ko[110D[7C[7C[Kd[110D[7C[8C[Ke[110D[7C[9C[Km[110D[7C[10C[K_[110D[7C[11C[Ks[110D[7C[12C[Kt[110D[7C[13C[Ka[110D[7C[14C[Kt[110D[7C[15C[Ku[110D[7C[16C[Ks[110D[7C[17C
+lyft > 
+TEST 21 - modem_status
+	RUNNING
+	VALIDATING
+[2000-01-01 00-00-22] qcom_modem.c:251:	INFO: qcom_modem: power on
+	[SUCCESS]
+[2000-01-01 00-00-23] qcom_modem_platform.c:66:	INFO: Modem state changed: 1
+
+29.****____TST_temp____****
+Start:18:14:04
+End:18:14:04
+Retrt:0
+Result:Pass
+Value:
+CT:
+30.****temp_by_mcu_sensor_Vbatt****
+Start:18:14:04
+End:18:14:07
+Retrt:0
+Result:Pass
+Value:30.000
+Addition:3.091261
+CT:CMD:test mcu_temp_sense
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Km[110D[7C[6C[Kc[110D[7C[7C[Ku[110D[7C[8C[K_[110D[7C[9C[Kt[110D[7C[10C[Ke[110D[7C[11C[Km[110D[7C[12C[Kp[110D[7C[13C[K_[110D[7C[14C[Ks[110D[7C[15C[Ke[110D[7C[16C[Kn[110D[7C[17C[Ks[110D[7C[18C[Ke[110D[7C[19C
+lyft > 
+TEST 3 - mcu_temp_sense
+	VALIDATING
+	MCU Temp: 30.000C
+	[SUCCESS]
+[2000-01-01 00-00-33] qcom_modem_urc.c:337:	INFO: qcom_modem: powered on [RDY]
+[2000-01-01 00-00-33] qcom_modem_urc.c:352:	INFO: qcom_modem: setting baud rate
+[2000-01-01 00-00-33] qcom_modem_platform.c:66:	INFO: Modem state changed: 2
+[2000-01-01 00-00-33] qcom_modem_platform.c:61:	INFO: Clear fault
+[2000-01-01 00-00-33] qcom_modem_platform.c:66:	INFO: Modem state changed: 3
+[2000-01-01 00-00-34] qcom_modem.c:666:	ERROR: qcom_modem: enable flow control error. Trying again in 20s
+
+31.****____TST_power_rail____****
+Start:18:14:07
+End:18:14:07
+Retrt:0
+Result:Pass
+Value:
+CT:
+32.****Power_Rail_Enable****
+Start:18:14:07
+End:18:14:11
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.076324
+CT:CMD:test power_rail
+VALIDATING
+	[SUCCESS]
+
+33.****Connect_PGND****
+Start:18:14:11
+End:18:14:11
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+34.****Voltage_PP4V2_SYS****
+Start:18:14:11
+End:18:14:12
+Retrt:0
+Result:Pass
+Value:3.679300
+Addition:0.247709
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(3679.30 mV;DONE)~_~
+35.****Voltage_PP1V8_LDO****
+Start:18:14:12
+End:18:14:12
+Retrt:0
+Result:Pass
+Value:1.814050
+Addition:0.247604
+CT:CMD:Read MUX Vol(ch7)
+Output:ACK(1814.05 mV;DONE)~_~
+36.****Voltage_PP5V0****
+Start:18:14:12
+End:18:14:12
+Retrt:0
+Result:Pass
+Value:5.006900
+Addition:0.247656
+CT:CMD:Read MUX Vol(ch4)
+Output:ACK(5006.90 mV;DONE)~_~
+37.****Voltage_DUT_PP12V0_BOOST****
+Start:18:14:12
+End:18:14:12
+Retrt:0
+Result:Pass
+Value:11.994060
+Addition:0.246963
+CT:CMD:Read MUX Vol(ch3)
+Output:ACK(2394.98 mV;DONE)~_~
+38.****Voltage_DUT_PP12V0****
+Start:18:14:12
+End:18:14:13
+Retrt:0
+Result:Pass
+Value:11.735096
+Addition:0.256164
+CT:CMD:Read MUX Vol(ch2)
+Output:ACK(2343.27 mV;DONE)~_~
+39.****DisConnect_PGND****
+Start:18:14:13
+End:18:14:13
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+40.****____TST_NOR_Flash____****
+Start:18:14:13
+End:18:14:13
+Retrt:0
+Result:Pass
+Value:
+CT:
+41.****nor_flash****
+Start:18:14:13
+End:18:14:19
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:6.065923
+CT:CMD:test nor_flash
+VALIDATING
+	[SUCCESS]
+
+42.****____TST_ClawLock____****
+Start:18:14:19
+End:18:14:19
+Retrt:0
+Result:Pass
+Value:
+CT:
+43.****Open_ClawLock_UART****
+Start:18:14:19
+End:18:14:22
+Retrt:0
+Result:Pass
+Value:
+CT:
+44.****PC9_CLAW_Off****
+Start:18:14:22
+End:18:14:22
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+45.****PC10_HOOK_On****
+Start:18:14:23
+End:18:14:23
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+46.****PC12_MOTOR_On****
+Start:18:14:23
+End:18:14:23
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+47.****lock_status****
+Start:18:14:24
+End:18:14:29
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.072377
+CT:CMD:test claw_lock
+Output:VALIDATING
+	[SUCCESS]
+[2000-01-01 00-00-55] qcom_modem_urc.c:200:	WARN: QNTP error: 561
+[2000-01-01 00-00-55] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+48.****TEST_Clowlock_Lock****
+Start:18:14:29
+End:18:14:29
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.337409
+CT:CMD:
+Output:59,59,59,59
+
+49.****Close_ClawLock_UART****
+Start:18:14:29
+End:18:14:29
+Retrt:0
+Result:Pass
+Value:
+CT:
+50.****____TST_ClAW_UnLOCK____****
+Start:18:14:29
+End:18:14:29
+Retrt:0
+Result:Pass
+Value:
+CT:
+51.****Open_ClawlockUART****
+Start:18:14:29
+End:18:14:33
+Retrt:0
+Result:Pass
+Value:
+CT:
+52.****PC9_CLAW_On****
+Start:18:14:33
+End:18:14:33
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+53.****PC10_HOOK_Off****
+Start:18:14:33
+End:18:14:33
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+54.****PC12_MOTOR_Off****
+Start:18:14:34
+End:18:14:34
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+55.****unlock_status****
+Start:18:14:34
+End:18:14:39
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.066247
+CT:CMD:test claw_unlock
+Output:VALIDATING
+	[SUCCESS]
+[2000-01-01 00-01-05] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+56.****TEST_Clowlock_Unlock****
+Start:18:14:39
+End:18:14:39
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.334148
+CT:CMD:
+Output:95,95,95,95
+
+57.****Close_ClawLockUART****
+Start:18:14:40
+End:18:14:40
+Retrt:0
+Result:Pass
+Value:
+CT:
+58.****____TST_Triangle_NFC____****
+Start:18:14:40
+End:18:14:40
+Retrt:0
+Result:Pass
+Value:
+CT:
+59.****triangle_nfc****
+Start:18:14:40
+End:18:14:44
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.079267
+CT:CMD:test triangle_nfc
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Kt[110D[7C[6C[Kr[110D[7C[7C[Ki[110D[7C[8C[Ka[110D[7C[9C[Kn[110D[7C[10C[Kg[110D[7C[11C[Kl[110D[7C[12C[Ke[110D[7C[13C[K_[110D[7C[14C[Kn[110D[7C[15C[Kf[110D[7C[16C[Kc[110D[7C[17C
+
+TEST 9 - triangle_nfc
+lyft > [2000-01-01 00-01-07] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-08] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-01-10] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-11] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+60.****ui_nfc****
+Start:18:14:44
+End:18:14:48
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.094800
+CT:CMD:test ui_nfc
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Ku[110D[7C[6C[Ki[110D[7C[7C[K_[110D[7C[8C[Kn[110D[7C[9C[Kf[110D[7C[10C[Kc[110D[7C[11C
+lyft > 
+TEST 10 - ui_nfc
+[2000-01-01 00-01-12] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-13] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-01-14] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-15] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+61.****____TST_Speaker____****
+Start:18:14:48
+End:18:14:48
+Retrt:0
+Result:Pass
+Value:
+CT:
+62.****TST_Speaker_Command****
+Start:18:14:48
+End:18:14:48
+Retrt:0
+Result:Pass
+Value:
+CT:
+63.****speaker****
+Start:18:14:48
+End:18:14:51
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.081664
+CT:CMD:
+Output:
+PASS
+64.****speaker_timeout****
+Start:18:14:51
+End:18:14:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:6.554417
+CT:CMD:
+Output:[2000-01-01 00-01-19] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	EXPECT EXTERNAL VALIDATION
+[2000-01-01 00-01-20] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-21] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-22] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-23] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-24] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-25] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	[TIMEOUT]
+
+PASS
+65.****____TST_Flip_Dot____****
+Start:18:14:58
+End:18:14:58
+Retrt:0
+Result:Pass
+Value:
+CT:
+66.****TST_Flip_Dot_Command****
+Start:18:14:58
+End:18:14:58
+Retrt:0
+Result:Pass
+Value:
+CT:
+67.****flip_dot****
+Start:18:15:03
+End:18:15:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.862231
+CT:CMD:
+Output:
+PASS
+68.****flip_dot_timeout****
+Start:18:15:04
+End:18:15:09
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.535602
+CT:CMD:
+Output:[2000-01-01 00-01-32] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-33] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-34] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-35] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-36] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	[TIMEOUT]
+
+PASS
+69.****____TST_se____****
+Start:18:15:09
+End:18:15:09
+Retrt:0
+Result:Pass
+Value:
+CT:
+70.****se****
+Start:18:15:09
+End:18:15:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:8.061165
+CT:CMD:test secure_element
+Output:VALIDATING
+[2000-01-01 00-01-38] i2c_manager.c:78:	INFO: Scanning I2C bus context 0:
+[2000-01-01 00-01-38] i2c_manager.c:85:	INFO: Found Device : 0x48
+[2000-01-01 00-01-38] i2c_manager.c:85:	INFO: Found Device : 0x6A
+[2000-01-01 00-01-38] i2c_manager.c:92:	INFO: Scan complete
+	[SUCCESS]
+[2000-01-01 00-01-39] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-40] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-41] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-42] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-43] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-44] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+71.****Can_Data_Send****
+Start:18:15:17
+End:18:15:20
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.877644
+CT:CMD:test can
+Output:
+
+
+Can_Send_pass
+Can_Send_Num:11111
+72.****Can_Data_Recv****
+Start:18:15:20
+End:18:15:32
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:11.939886
+CT:CMD:test can
+Output:[2000-01-01 00-01-49] sibros_can_task.c:261:	INFO: CAN SEND (1520): 0x7c
+[2000-01-01 00-01-50] sibros_can_task.c:261:	INFO: CAN SEND (1520): 0x7c
+[2000-01-01 00-01-50] sibros_can_task.c:261:	INFO: CAN SEND (1520): 0x7c
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-01-50] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-51] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-52] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-53] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-54] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-55] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-56] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-57] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-58] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-01-59] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+Can _Rece_pass : 7C
+73.****____TST_Solar_L____****
+Start:18:15:32
+End:18:15:32
+Retrt:0
+Result:Pass
+Value:
+CT:
+74.****Power_On_Solar_L****
+Start:18:15:32
+End:18:15:32
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+75.****PA6_SOLAR_L_CTRL****
+Start:18:15:33
+End:18:15:33
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+76.****TST_SOLAR_L****
+Start:18:15:34
+End:18:15:39
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.080246
+CT:CMD:test solar_panel
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Ks[110D[7C[6C[Ko[110D[7C[7C[Kl[110D[7C[8C[Ka[110D[7C[9C[Kr[110D[7C[10C[K_[110D[7C[11C[Kp[110D[7C[12C[Ka[110D[7C[13C[Kn[110D[7C[14C[Ke[110D[7C[15C[Kl[110D[7C[16C
+lyft > 
+TEST 15 - solar_panel
+[2000-01-01 00-02-02] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-03] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	RUNNING
+	Solar voltage: 7.25 V
+	Solar current: 35640.00 uA
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-02-04] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-05] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-06] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+77.****SOLAR_L_Voltage****
+Start:18:15:39
+End:18:15:39
+Retrt:0
+Result:Pass
+Value:7.25
+Addition:0.000000
+CT:Solar_L_Voltage::
+Output:7.25V
+78.****SOLAR_L_Current****
+Start:18:15:39
+End:18:15:39
+Retrt:0
+Result:Pass
+Value:35640.00
+Addition:0.004997
+CT:Solar_L_Current:
+35640.00uA
+79.****Power_Off_Solar_L****
+Start:18:15:39
+End:18:15:39
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+80.****____TST_Solar_R____****
+Start:18:15:40
+End:18:15:40
+Retrt:0
+Result:Pass
+Value:
+CT:
+81.****Power_On_Solar_R****
+Start:18:15:40
+End:18:15:40
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+82.****PA5_SOLAR_R_CTRL ****
+Start:18:15:41
+End:18:15:41
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+83.****TST_SOLAR_R****
+Start:18:15:42
+End:18:15:47
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.073404
+CT:CMD:test solar_panel
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Ks[110D[7C[6C[Ko[110D[7C[7C[Kl[110D[7C[8C[Ka[110D[7C[9C[Kr[110D[7C[10C[K_[110D[7C[11C[Kp[110D[7C[12C[Ka[110D[7C[13C[Kn[110D[7C[14C[Ke[110D[7C[15C[Kl[110D[7C[16C
+lyft > 
+TEST 15 - solar_panel
+[2000-01-01 00-02-10] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-11] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	RUNNING
+	Solar voltage: 7.25 V
+	Solar current: 35463.00 uA
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-02-12] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-13] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-14] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+84.****SOLAR_R_Voltage****
+Start:18:15:47
+End:18:15:47
+Retrt:0
+Result:Pass
+Value:7.25
+Addition:0.000000
+CT:Solar_R_Voltage::
+Output:7.25V
+85.****SOLAR_R_Current****
+Start:18:15:47
+End:18:15:47
+Retrt:0
+Result:Pass
+Value:35463.00
+Addition:0.005984
+CT:Solar_R_Current:
+35463.00uA
+86.****Power_Off_Solar_R****
+Start:18:15:47
+End:18:15:47
+Retrt:0
+Result:Pass
+Value:
+Addition:0.000000
+CT:
+87.****____TST_rp_charge____****
+Start:18:15:48
+End:18:15:48
+Retrt:0
+Result:Pass
+Value:
+CT:
+88.****Power_On_Recovery_12V****
+Start:18:15:48
+End:18:15:48
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+89.****rp_charge****
+Start:18:15:49
+End:18:15:54
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:5.07
+CT:CMD:test rp_charge
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Kr[110D[7C[6C[Kp[110D[7C[7C[K_[110D[7C[8C[Kc[110D[7C[9C[Kh[110D[7C[10C[Ka[110D[7C[11C[Kr[110D[7C[12C[Kg[110D[7C[13C[Ke[110D[7C[14C
+lyft > 
+TEST 17 - rp_charge
+[2000-01-01 00-02-17] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-18] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-19] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	RUNNING
+	Battery charging: 1
+	VALIDATING
+	[SUCCESS]
+[2000-01-01 00-02-20] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-21] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+90.****____TST_temp____****
+Start:18:15:54
+End:18:15:54
+Retrt:0
+Result:Pass
+Value:
+CT:
+91.****temp_by_mcu_sensor_Vbatt_and_RP12V****
+Start:18:15:54
+End:18:15:59
+Retrt:0
+Result:Pass
+Value:30.000
+Addition:5.057652
+CT:CMD:test mcu_temp_sense
+Output:[Kt[110D[7C[1C[Ke[110D[7C[2C[Ks[110D[7C[3C[Kt[110D[7C[4C[K [110D[7C[5C[Km[110D[7C[6C[Kc[110D[7C[7C[Ku[110D[7C[8C[K_[110D[7C[9C[Kt[110D[7C[10C[Ke[110D[7C[11C[Km[110D[7C[12C[Kp[110D[7C[13C[K_[110D[7C[14C[Ks[110D[7C[15C[Ke[110D[7C[16C[Kn[110D[7C[17C[Ks[110D[7C[18C[Ke[110D[7C[19C
+lyft > 
+TEST 3 - mcu_temp_sense
+[2000-01-01 00-02-22] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-23] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+	VALIDATING
+	MCU Temp: 30.000C
+	[SUCCESS]
+[2000-01-01 00-02-24] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-25] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-26] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+92.****Power_Off_Recovery_12V****
+Start:18:15:59
+End:18:15:59
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+93.****____TST_lte_modem_sim____****
+Start:18:15:59
+End:18:15:59
+Retrt:0
+Result:Pass
+Value:
+CT:
+94.****sim_read****
+Start:18:15:59
+End:18:16:09
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:10.103187
+CT:CMD:test modem_sim
+Output:VALIDATING
+	IMEI: 869965065812145, ICCID:89430301722235532825
+	[SUCCESS]
+[2000-01-01 00-02-29] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-30] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-31] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-32] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-33] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-34] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-35] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+[2000-01-01 00-02-36] qcom_modem_platform.c:66:	INFO: Modem state changed: 4
+
+95.****IMEI****
+Start:18:16:09
+End:18:16:09
+Retrt:0
+Result:Pass
+Value:869965065812145
+Addition:0.013001
+CT:IMEI:
+869965065812145
+96.****ICCID****
+Start:18:16:09
+End:18:16:10
+Retrt:0
+Result:Pass
+Value:89430301722235532825
+Addition:0.012973
+CT:ICCID:
+89430301722235532825
+97.****SET_Sleep_mode****
+Start:18:16:10
+End:18:16:25
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:15.065619
+CT:CMD:test low_power
+Output:VALIDATING
+	Disabling pins and entering STOP2 mode
+98.****Sleep_Mode_Current****
+Start:18:16:30
+End:18:16:50
+Retrt:0
+Result:Pass
+Value:0.000000
+Addition:20.000094
+CT:CMD:read vbat Current()
+Output:ACK(0.000 mA;DONE)~_~
+99.****Enable_Vbat_THERM****
+Start:18:16:50
+End:18:16:50
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+100.****Connect_STLink_1****
+Start:18:16:50
+End:18:16:50
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+101.****Power_On_DC_3V7****
+Start:18:16:52
+End:18:16:52
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+102.****Voltage_PP4V2_SYS****
+Start:18:16:54
+End:18:16:54
+Retrt:0
+Result:Pass
+Value:3.700400
+Addition:0.236115
+CT:CMD:Read MUX Vol(ch6)
+Output:ACK(3700.40 mV;DONE)~_~
+103.****Flash_STLink****
+Start:18:16:54
+End:18:17:07
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:12.76
+CT:CMD:cmd /c STM32_Programmer_CLI -c port=swd mode=UR -e all && STM32_Programmer_CLI -c port=swd mode=UR reset=HWrst --skipErase -w  D:\Firmware\monolith_with_bootloader-2023.15.103.hex -hardRst
+Output:      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+Mass erase ... 
+
+Mass erase successfully achieved
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+
+Memory Programming ...
+Opening and parsing file: monolith_with_bootloader-2023.15.103.hex
+  File          : monolith_with_bootloader-2023.15.103.hex
+  Size          : 640.11 KB 
+  Address       : 0x08000000 
+
+
+Download in Progress:
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€ 14%€€€€€€€ 28%€€€€€ 38%€€€€€€€ 52%€€€€€€€ 66%€€€€€€€ 81%€€€€€€€ 95%€€€ 100%
+
+File download complete
+Time elapsed during download operation: 00:00:12.350
+
+Hard reset is performed
+
+104.****Lock_MCU_Write_Protect****
+Start:18:17:07
+End:18:17:08
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.44
+CT:CMD:cmd /c  STM32_Programmer_CLI -c port=swd mode=UR -ob rdp=0 pcrop_rdp=1
+Output:
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.11.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 56FF6F065177495645342087
+ST-LINK FW  : V2J39S7
+Board       : --
+Voltage     : 1.76V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x415
+Revision ID : Rev 4
+Device name : STM32L4x1/STM32L475xx/STM32L476xx/STM32L486xx
+Flash size  : 1 MBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : --
+Debug in Low Power mode enabled
+
+
+UPLOADING OPTION BYTES DATA ...
+
+  Bank          : 0x00
+  Address       : 0x40022020
+  Size          : 20 Bytes
+
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 0%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+  Bank          : 0x01
+  Address       : 0x40022044
+  Size          : 16 Bytes
+
+
+
+
+PROGRAMMING OPTION BYTES AREA ...
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+  Bank          : 0x00
+  Address       : 0x40022020
+  Size          : 20 Bytes
+
+
+
+Reconnecting...
+Reconnected !
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+UPLOADING OPTION BYTES DATA ...
+
+  Bank          : 0x00
+  Address       : 0x40022020
+  Size          : 20 Bytes
+
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±± 50%
+€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€ 100%
+
+  Bank          : 0x01
+  Address       : 0x40022044
+  Size          : 16 Bytes
+
+
+
+OPTION BYTE PROGRAMMING VERIFICATION:
+
+Option Bytes successfully programmed
+
+Time elapsed during option Bytes configuration: 00:00:01.203
+
+105.****Power_Off_DC_3V7****
+Start:18:17:08
+End:18:17:08
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:
+106.****Disconnect_STLink_1****
+Start:18:17:10
+End:18:17:10
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.000000
+CT:

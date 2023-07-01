@@ -1,0 +1,43 @@
+***************
+Station: monolith_receiver_ft
+FixtureID: 1
+SN: FK2322MRCM2AA0008
+***************
+1.****Power_Off_12V****
+Start:17:51:52
+End:17:51:53
+Retrt:0
+Result:Pass
+Value:
+
+2.****Power_Off_3.6V****
+Start:17:51:53
+End:17:51:53
+Retrt:0
+Result:Pass
+Value:
+
+3.****TST_LPCD_Current_Config****
+Start:17:51:58
+End:17:51:59
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.287407
+
+4.****____TST_MES_101_Command____****
+Start:17:51:59
+End:17:51:59
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****MES_101_Command_Send****
+Start:17:51:59
+End:17:51:59
+Retrt:0
+Result:Fail
+Value:FAILED
+Addition:0.020087
+CT:CMD:101;STQ235YM3401;1961113;10023006;FK2322MRCM2AA0008;
+Output:NG;PROCESS ERROR: (FK2322MRCM2AA0008)(KS-LINK-NFC)
