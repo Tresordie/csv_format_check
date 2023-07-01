@@ -1,3 +1,0 @@
-record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
-1,ANT_resonant_frequency,13,14,MHz,13.724,11.744267,PASS,FAIL,230002,0D30A382-BBB3-4EE7-A012-96210D7F93CE,FK2322MRCM2AA00A7,2023-06-27 15:38:05,2023-06-27 15:38:29,RTQ236YM3401,monolith_receiver_ft,10023006
-2,Q_Factor_Value,15,40,,6.8415,0.000000,FAIL,FAIL,230002,0D30A382-BBB3-4EE7-A012-96210D7F93CE,FK2322MRCM2AA00A7,2023-06-27 15:38:05,2023-06-27 15:38:29,RTQ236YM3401,monolith_receiver_ft,10023006

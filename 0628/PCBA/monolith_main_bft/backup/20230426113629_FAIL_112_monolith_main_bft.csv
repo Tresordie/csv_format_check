@@ -1,3 +1,0 @@
-record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,sn,start_time,end_time,work_order,test_station_name,test_station_id
-1,Flash_STLink,PASS,PASS,,PASS,33.67,PASS,FAIL,101072,112,2023-04-26 10:41:41,2023-04-26 11:36:29,1,monolith_main_bft,10023100
-2,Can_Data,PASS,PASS,,FAIL,5.955312,FAIL,FAIL,101072,112,2023-04-26 10:41:41,2023-04-26 11:36:29,1,monolith_main_bft,10023100
