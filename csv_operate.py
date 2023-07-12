@@ -18,6 +18,7 @@ def get_columns_quantity(csv_file):
 
 def pd_read_csv_head(csv_path):
     df = pd.read_csv(csv_path)
+    # print(df.head(0))
     return df.head(0)
 
 
@@ -47,17 +48,36 @@ def creat_csv(csv_file_to_be_created, csv_header):
 
 
 def read_csv_one_row(csv_path, row_num):
-    with open(csv_path, "r") as f:
-        reader = csv.reader(f)
-        rows = [row for row in reader]
-        # print(ows[row_num])
-        return rows[row_num]
+    rows_list = []
+    with open(csv_path, "r") as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
+            # print(row)
+            rows_list.append(row)
+    return rows_list[row_num]
+
+
+def read_csv_one_column(csv_path, column_num):
+    rows_list = []
+    column_list = []
+    with open(csv_path, "r") as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
+            # print(row)
+            rows_list.append(row)
+
+    if len(rows_list):
+        for i in range(len(rows_list)):
+            column_list.append(rows_list[i][column_num])
+        return column_list
+    else:
+        print("row - empty")
 
 
 # read specific cell data
 def read_csv_cell(csv_path, row_num, column_num):
-    specific_row_list = read_csv_one_row(csv_path, row_num)
-    return specific_row_list[column_num]
+    specific_row = read_csv_one_row(csv_path, row_num)
+    return specific_row[column_num]
 
 
 # write data to specific .csv file
