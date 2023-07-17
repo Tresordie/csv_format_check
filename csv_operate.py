@@ -52,8 +52,8 @@ def read_csv_one_row(csv_path, row_num):
     with open(csv_path, "r") as csv_file:
         reader = csv.reader(csv_file)
         for row in reader:
-            # print(row)
-            rows_list.append(row)
+            if row:
+                rows_list.append(row)
     return rows_list[row_num]
 
 
