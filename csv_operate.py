@@ -4,6 +4,7 @@
 import csv
 import datetime
 import pandas as pd
+import time
 
 
 def get_rows_quantity(csv_file):
@@ -155,3 +156,12 @@ def get_repeat_element_index_list(src_list, str_repeat):
         index_list.append(index)
 
     print(index_list)
+
+
+def generate_time_stamp():
+    # tick_time = time.time()
+    # loc_time = time.localtime()
+    # asc_time = time.asctime()
+    time_stamp = time.strftime("%Y%m%d_%H%M%S", time.localtime())
+
+    return time_stamp

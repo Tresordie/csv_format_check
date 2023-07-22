@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,MES_101_Command_Send,PASS,PASS,,FAILED,0.001758,FAIL,FAIL,999999,924EC052-4863-4573-BD74-67F10473720B,FK2324MMBC1AA0072,2023-07-04 14:04:44,2023-07-04 14:05:05,RTT237R02,monolith_main_bft,10023100

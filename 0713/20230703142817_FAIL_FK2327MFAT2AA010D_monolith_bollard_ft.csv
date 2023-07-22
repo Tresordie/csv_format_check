@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,opmode_force_dev_mode,PASS,PASS,,FAIL,60.572850,FAIL,FAIL,,E2013BDB-7261-4C2C-9597-3D06CEB5B4BE,FK2327MFAT2AA010D,2023-07-03 14:26:32,2023-07-03 14:28:17,STA237YM5102,monolith_bollard_ft,10023020
