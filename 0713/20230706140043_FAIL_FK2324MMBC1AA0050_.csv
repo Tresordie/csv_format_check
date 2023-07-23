@@ -1,2 +1,0 @@
-record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
-1,MES_101_Command_Send,PASS,PASS,,FAILED,0.006053,FAIL,FAIL,999999,807E36FC-3CF2-48D8-8F12-6D2E7C6D46AE,FK2324MMBC1AA0050,2023-07-06 14:00:24,2023-07-06 14:00:43,RTT237R02,,10023100

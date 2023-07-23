@@ -9,7 +9,7 @@ import shutil
 
 wrong_folder_validation = False
 
-csv_date_folder = "./"
+csv_date_folder = "./wrong"
 # csv_date_folder = "./0628/"
 
 

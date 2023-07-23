@@ -9,7 +9,7 @@ import shutil
 
 wrong_folder_validation = False
 
-csv_date_folder = "./0713"
+csv_date_folder = "./20230713"
 
 validate_result_output_file = "validate_result_output.csv"
 
@@ -103,7 +103,9 @@ class lyft_csv_format_validate(object):
         self.output_result_csv_header = validate_result_csv_header
 
         # csv file path of output result
-        self.output_result_file_path = csv_date_folder + validate_result_output_file
+        self.output_result_file_path = (
+            csv_date_folder + "_" + validate_result_output_file
+        )
 
         # current csv file been scanned
         self.current_validating_file = ""
@@ -949,7 +951,12 @@ class lyft_csv_format_validate(object):
                 if fn != validate_result_output_file:
                     full_file_name = os.path.join(self.search_path, fn)
 
-                    self.current_validating_file = full_file_name
+                    # file name recorded into output path
+                    self.current_validating_file = fn
+
+                    # file path recorded into output path
+                    # self.current_validating_file = full_file_name
+
                     print(full_file_name)
 
                     self.file_name_check(full_file_name)

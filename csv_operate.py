@@ -19,8 +19,7 @@ def get_columns_quantity(csv_file):
 
 def pd_read_csv_head(csv_path):
     df = pd.read_csv(csv_path)
-    # print(df.head(0))
-    return df.head(0)
+    return list(df.columns.values)
 
 
 def pd_read_csv_column(csv_path, column_num):
