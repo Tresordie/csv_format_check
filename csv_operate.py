@@ -40,6 +40,25 @@ def sort_csv(file_name, sort_name, ascending_seq, inplace_state, export_file_nam
     csv_df.to_csv(export_file_name, index=False)
 
 
+def sort_csv_by_multi_name(
+    file_name,
+    sort_name_first,
+    sort_name_second,
+    ascending_seq_first,
+    ascending_seq_second,
+    inplace_state,
+    export_file_name,
+):
+    csv_df = pd.read_csv(file_name)
+    csv_df.sort_values(
+        by=[sort_name_first, sort_name_second],
+        axis=0,
+        ascending=[ascending_seq_first, ascending_seq_second],
+        inplace=inplace_state,
+    )
+    csv_df.to_csv(export_file_name, index=False)
+
+
 def creat_csv(csv_file_to_be_created, csv_header):
     # print(csv_file_to_be_created)
     with open(csv_file_to_be_created, "w", encoding="utf8", newline="") as f_bft:
