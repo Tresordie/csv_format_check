@@ -9,16 +9,16 @@ import shutil
 
 wrong_folder_validation = False
 
-csv_date_folder = "./20230713"
+csv_date_folder = "./"
 
 validate_result_output_file = "validate_result_output.csv"
 
-main_bft_csv_path = "0704_debug_1530"
+main_bft_csv_path = "pcba10_07"
 
 # main_bft_csv_path = "PCBA/monolith_main_bft/csv"
 main_bft_csv_wrong_path = "PCBA/monolith_main_bft/csv/wrong"
 
-main_flash_csv_path = "PCBA/Monolith_pcba_flash_station/csv"
+main_flash_csv_path = "0912"
 main_flash_csv_wrong_path = "PCBA/Monolith_pcba_flash_station/csv/wrong"
 
 triangle_bft_csv_path = "PCBA/Monolith_triangle_pcba_ft/csv"
@@ -27,16 +27,16 @@ triangle_bft_csv_wrong_path = "PCBA/Monolith_triangle_pcba_ft/csv/wrong"
 leak_ft_csv_path = "FATP/Monolith_leak_ft/csv"
 leak_ft_csv_wrong_path = "FATP/Monolith_leak_ft/csv/wrong"
 
-cassette_ft_csv_path = "FATP/monolith_cassette_ft/csv"
+cassette_ft_csv_path = "1009noncharging_cassette"
 cassette_ft_csv_wrong_path = "FATP/monolith_cassette_ft/csv/wrong"
 
-receiver_ft_csv_path = "FATP/monolith_receiver_ft/csv"
-receiver_ft_csv_wrong_path = "FATP/monolith_receiver_ft/csv/wrong"
+receiver_ft_csv_path = "1009recevier"
+receiver_ft_csv_wrong_path = "1009recevier"
 
-bollard_ft_csv_path = "FATP/monolith_bollard_ft/csv"
+bollard_ft_csv_path = "1009bollard"
 bollard_ft_csv_wrong_path = "FATP/monolith_bollard_ft/csv/wrong"
 
-solar_flat_ft_csv_path = "FATP/monolith_solar_panel_flat_ft/csv"
+solar_flat_ft_csv_path = "0904_solar_panel_IQC/csv"
 solar_flat_ft_csv_wrong_path = "FATP/monolith_solar_panel_flat_ft/csv/wrong"
 
 solar_left_ft_csv_path = "FATP/monolith_solar_panel_left_ft/csv"
@@ -1026,37 +1026,38 @@ class lyft_csv_format_validate(object):
 if __name__ == "__main__":
     if not wrong_folder_validation:
         # PCBA - main_bft
-        monolith_main_bft_csv_validate = lyft_csv_format_validate(
-            csv_date_folder
-            # csv_date_folder + main_bft_csv_path
-        )
-        monolith_main_bft_csv_validate.search_csv_log_check_format()
+        # monolith_main_bft_csv_validate = lyft_csv_format_validate(
+        #     # csv_date_folder
+        #     csv_date_folder
+        #     + main_bft_csv_path
+        # )
+        # monolith_main_bft_csv_validate.search_csv_log_check_format()
 
         # # PCBA - main_flash
         # monolith_main_flash_csv_validate = lyft_csv_format_validate(
         #     csv_date_folder + main_flash_csv_path
         # )
         # monolith_main_flash_csv_validate.search_csv_log_check_format()
-        #
+
         # # PCBA - triangle
         # monolith_triangle_csv_validate = lyft_csv_format_validate(
         #     csv_date_folder + triangle_bft_csv_path
         # )
         # monolith_triangle_csv_validate.search_csv_log_check_format()
-        #
+
         # # cassette - leak
         # monolith_cassette_leak_csv_validate = lyft_csv_format_validate(
         #     csv_date_folder + leak_ft_csv_path
         # )
         # monolith_cassette_leak_csv_validate.search_csv_log_check_format()
-        #
-        # # cassette - ft
-        # monolith_cassette_ft_csv_validate = lyft_csv_format_validate(
-        #     csv_date_folder + cassette_ft_csv_path
-        # )
-        # monolith_cassette_ft_csv_validate.search_csv_log_check_format()
 
-        # # receiver - ft
+        # cassette - ft
+        monolith_cassette_ft_csv_validate = lyft_csv_format_validate(
+            csv_date_folder + cassette_ft_csv_path
+        )
+        monolith_cassette_ft_csv_validate.search_csv_log_check_format()
+
+        # receiver - ft
         # monolith_receiver_ft_csv_validate = lyft_csv_format_validate(
         #     csv_date_folder + receiver_ft_csv_path
         # )
@@ -1068,7 +1069,7 @@ if __name__ == "__main__":
         # )
         # monolith_bollard_ft_csv_validate.search_csv_log_check_format()
 
-        # # solar flat - ft
+        # solar flat - ft
         # monolith_solar_flat_ft_csv_validate = lyft_csv_format_validate(
         #     csv_date_folder + solar_flat_ft_csv_path
         # )
@@ -1086,43 +1087,43 @@ if __name__ == "__main__":
         # )
         # monolith_solar_right_ft_csv_validate.search_csv_log_check_format()
     else:
-        ########### wrong format double check ########
+        ########## wrong format double check ########
         # PCBA - main_bft
-        # monolith_main_bft_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + main_bft_csv_wrong_path
-        # )
-        # monolith_main_bft_csv_wrong_validate.search_csv_log_check_format()
-        #
-        # # PCBA - main_flash
-        # monolith_main_flash_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + main_flash_csv_wrong_path
-        # )
-        # monolith_main_flash_csv_wrong_validate.search_csv_log_check_format()
-        #
-        # # PCBA - triangle
-        # monolith_triangle_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + triangle_bft_csv_wrong_path
-        # )
-        # monolith_triangle_csv_wrong_validate.search_csv_log_check_format()
-        #
-        # # cassette - leak
-        # monolith_cassette_leak_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + leak_ft_csv_wrong_path
-        # )
-        # monolith_cassette_leak_csv_wrong_validate.search_csv_log_check_format()
-        #
-        # # cassette - ft
-        # monolith_cassette_ft_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + cassette_ft_csv_wrong_path
-        # )
-        # monolith_cassette_ft_csv_wrong_validate.search_csv_log_check_format()
+        monolith_main_bft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + main_bft_csv_wrong_path
+        )
+        monolith_main_bft_csv_wrong_validate.search_csv_log_check_format()
 
-        # # receiver - ft
-        # monolith_receiver_ft_csv_wrong_validate = lyft_csv_format_validate(
-        #     csv_date_folder + receiver_ft_csv_wrong_path
-        # )
-        # monolith_receiver_ft_csv_wrong_validate.search_csv_log_check_format()
-        #
+        # PCBA - main_flash
+        monolith_main_flash_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + main_flash_csv_wrong_path
+        )
+        monolith_main_flash_csv_wrong_validate.search_csv_log_check_format()
+
+        # PCBA - triangle
+        monolith_triangle_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + triangle_bft_csv_wrong_path
+        )
+        monolith_triangle_csv_wrong_validate.search_csv_log_check_format()
+
+        # cassette - leak
+        monolith_cassette_leak_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + leak_ft_csv_wrong_path
+        )
+        monolith_cassette_leak_csv_wrong_validate.search_csv_log_check_format()
+
+        # cassette - ft
+        monolith_cassette_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + cassette_ft_csv_wrong_path
+        )
+        monolith_cassette_ft_csv_wrong_validate.search_csv_log_check_format()
+
+        # receiver - ft
+        monolith_receiver_ft_csv_wrong_validate = lyft_csv_format_validate(
+            csv_date_folder + receiver_ft_csv_wrong_path
+        )
+        monolith_receiver_ft_csv_wrong_validate.search_csv_log_check_format()
+
         # bollard - ft
         monolith_bollard_ft_csv_wrong_validate = lyft_csv_format_validate(
             csv_date_folder + bollard_ft_csv_wrong_path
