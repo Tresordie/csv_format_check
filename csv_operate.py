@@ -8,53 +8,53 @@ import time
 
 
 def get_rows_quantity(csv_file):
-    df = pd.read_csv(csv_file)
+    df = pd.read_csv(csv_file, header=None)
+    # print(df.shape[0])
     return df.shape[0]
 
 
 def get_columns_quantity(csv_file):
-    df = pd.read_csv(csv_file)
+    df = pd.read_csv(csv_file, header=None)
+    # print(df.shape[1])
     return df.shape[1]
 
 
 def pd_read_csv_head(csv_path):
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(list(df.columns.values))
     return list(df.columns.values)
 
 
 def pd_read_csv_column(csv_path, column_num):
-    df = pd.read_csv(csv_path)
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(df.iloc[:, column_num])
     return df.iloc[:, column_num]
 
 
+def pd_read_csv_column_by_name(csv_path, column_name):
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(df[column_name])
+    return df[column_name]
+
+
 def pd_read_csv_row(csv_path, row_num):
-    df = pd.read_csv(csv_path)
-    return df.iloc[row_num, :]
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(type(df.iloc[row_num, :]))
+    # print(list(df.iloc[row_num, :]))
+    return list(df.iloc[row_num, :])
+
+
+def pd_read_csv_cell(csv_path, row_num, column_num):
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(type(df.iloc[row_num, column_num]))
+    # print(df.iloc[row_num, column_num])
+    return df.iloc[row_num, column_num]
 
 
 def sort_csv(file_name, sort_name, ascending_seq, inplace_state, export_file_name):
     csv_df = pd.read_csv(file_name)
     csv_df.sort_values(
         sort_name, axis=0, ascending=[ascending_seq], inplace=inplace_state
-    )
-    csv_df.to_csv(export_file_name, index=False)
-
-
-def sort_csv_by_multi_name(
-    file_name,
-    sort_name_first,
-    sort_name_second,
-    ascending_seq_first,
-    ascending_seq_second,
-    inplace_state,
-    export_file_name,
-):
-    csv_df = pd.read_csv(file_name)
-    csv_df.sort_values(
-        by=[sort_name_first, sort_name_second],
-        axis=0,
-        ascending=[ascending_seq_first, ascending_seq_second],
-        inplace=inplace_state,
     )
     csv_df.to_csv(export_file_name, index=False)
 
@@ -73,7 +73,18 @@ def read_csv_one_row(csv_path, row_num):
         for row in reader:
             if row:
                 rows_list.append(row)
+    # print(rows_list[row_num])
     return rows_list[row_num]
+
+
+def read_csv_all_rows(csv_path):
+    rows_list = []
+    with open(csv_path, "r") as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
+            rows_list.append(row)
+    # print(rows_list)
+    return rows_list
 
 
 def read_csv_one_column(csv_path, column_num):
@@ -88,6 +99,7 @@ def read_csv_one_column(csv_path, column_num):
     if len(rows_list):
         for i in range(len(rows_list)):
             column_list.append(rows_list[i][column_num])
+        # print(column_list)
         return column_list
     else:
         print("row - empty")
