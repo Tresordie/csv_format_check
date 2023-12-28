@@ -6,6 +6,7 @@ from collections import Counter
 import os
 import re
 import sys
+import shutil
 
 
 class parametric_data_rule(object):
@@ -19,6 +20,7 @@ class parametric_data_rule(object):
         self,
         target_validation_folder_path,
         export_file_path,
+        error_format_csv_destination_path,
     ):
         # csv files to be validated
         self.target_validation_folder_path = target_validation_folder_path
@@ -92,6 +94,20 @@ class parametric_data_rule(object):
             4,
             12,
         ]  # E058FB8C-D506-427B-8F1B-D0B03EDB477C
+
+        # generate output folder
+        self.error_format_csv_destination_path = error_format_csv_destination_path
+        self.mkdir()
+
+    def mkdir(self):
+        # print current function name
+        # print(sys._getframe().f_code.co_name)
+        folder = os.path.exists(self.error_format_csv_destination_path)
+        if not folder:
+            # print("folder not exist, creating folder!")
+            os.makedirs(self.error_format_csv_destination_path)
+        # else:
+        #     print("folder exist!")
 
     def get_sn(self):
         tmp_sn = self.self.current_validating_filename.split('_')[2]
@@ -461,7 +477,7 @@ class parametric_data_rule(object):
 
             if counter_items_in_column_list['FAIL'] == 0:
                 self.validate_result[1] += (
-                    'column[%d] -- pass_fail_status all items "PASS"(overall_result "FAIL")\n'
+                    'column[%d] -- pass_fail_status all items "PASS"(overall_result: "FAIL")\n'
                     % (column_index)
                 )
             elif counter_items_in_column_list['FAIL'] > 1:
@@ -723,9 +739,17 @@ class parametric_data_rule(object):
 
                 self.csv_file_name_check()
                 self.csv_head_row_check()
-                self.csv_rows_content_check()
-                self.csv_columns_content_check()
-                write_row_to_csv(self.validate_result, self.export_file_fullpath)
+
+                if self.current_validating_file_rows > 1:
+                    self.csv_rows_content_check()
+                    self.csv_columns_content_check()
+
+                if self.validate_result[1]:
+                    write_row_to_csv(self.validate_result, self.export_file_fullpath)
+                    shutil.copy(
+                        self.current_validating_file_fullpath,
+                        self.error_format_csv_destination_path,
+                    )
 
                 print(sys._getframe().f_code.co_name)
                 print(self.validate_result)
@@ -733,10 +757,14 @@ class parametric_data_rule(object):
 
                 self.current_validating_file_fullpath = ''
                 self.current_validating_filename = ''
+                self.current_validating_file_rows = 0
+                self.current_validating_file_columns = 0
                 self.validate_result = ['', '']
 
 
 if __name__ == '__main__':
-    parametric_data_rule = parametric_data_rule('./test', './')
+    parametric_data_rule = parametric_data_rule(
+        './monolith_pvt_aws20231227', './', './20231228_asw_csv_check'
+    )
 
     parametric_data_rule.parametric_format_validation()
