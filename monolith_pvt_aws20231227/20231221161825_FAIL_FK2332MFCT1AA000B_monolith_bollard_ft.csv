@@ -1,0 +1,4 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,opmode_force_dev_mode,PASS,PASS,,PASS,1.294253,PASS,FAIL,,4CE3E394-C70B-4EB6-8AB1-8DE50862AEB6,FK2332MFCT1AA000B,2023-12-21 16:17:26,2023-12-21 16:18:25,1QAZ,monolith_bollard_ft,10023020
+2,opmode_get_state,PASS,PASS,,PASS,1.294252,PASS,FAIL,,4CE3E394-C70B-4EB6-8AB1-8DE50862AEB6,FK2332MFCT1AA000B,2023-12-21 16:17:26,2023-12-21 16:18:25,1QAZ,monolith_bollard_ft,10023020
+3,Recovery_port_check,PASS,PASS,,FAIL,1.232290,FAIL,FAIL,,4CE3E394-C70B-4EB6-8AB1-8DE50862AEB6,FK2332MFCT1AA000B,2023-12-21 16:17:26,2023-12-21 16:18:25,1QAZ,monolith_bollard_ft,10023020

@@ -1,0 +1,6 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,Pressure_Setup,9.5,11,KPa,10,0,PASS,FAIL,100103,6f6dfc84-107c-42fe-b66d-5f874513f09b,FK2338MCAM3CC0214,2023-09-23 09:09:27,2023-09-23 09:10:34,STQ239YM4302,Monolith_Leak,001
+2,Inflation_time,0,310,Sec,29.5,29.5,PASS,FAIL,100103,6f6dfc84-107c-42fe-b66d-5f874513f09b,FK2338MCAM3CC0214,2023-09-23 09:09:27,2023-09-23 09:10:34,STQ239YM4302,Monolith_Leak,001
+3,Stabilization_time,0,30,Sec,26.0,26.0,PASS,FAIL,100103,6f6dfc84-107c-42fe-b66d-5f874513f09b,FK2338MCAM3CC0214,2023-09-23 09:09:27,2023-09-23 09:10:34,STQ239YM4302,Monolith_Leak,001
+4,Test_time,0,30,Sec,5.1,5.1,PASS,FAIL,100103,6f6dfc84-107c-42fe-b66d-5f874513f09b,FK2338MCAM3CC0214,2023-09-23 09:09:27,2023-09-23 09:10:34,STQ239YM4302,Monolith_Leak,001
+5,Pressure_KPa,9.5,11,KPa,9.142,4.1,FAIL,FAIL,100103,6f6dfc84-107c-42fe-b66d-5f874513f09b,FK2338MCAM3CC0214,2023-09-23 09:09:27,2023-09-23 09:10:34,STQ239YM4302,Monolith_Leak,001

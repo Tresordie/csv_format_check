@@ -1,0 +1,3 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,KS-CHARGING-OUT01,PASS,PASS,,PASS,0,PASS,PASS,0,0AE903DA-D4D5-9207-E063-3E404A8C0E07,FK2347MCAM3CC0001,2023-11-24 08:25:37,2023-11-24 08:25:37,STQ23BYM4401,MOD-Cassette,10023213
+2,Charge_Output,PASS,PASS,,PASS,0,PASS,PASS,0,0AE903DA-D4DA-9207-E063-3E404A8C0E07,FK2347MCAM3CC0001,2023-11-24 08:58:27,2023-11-24 08:58:27,STQ23BYM4401,MOD-Cassette,10023155

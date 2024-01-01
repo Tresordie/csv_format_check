@@ -1,0 +1,3 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,Test_voltage,7.35,8.33,V,7.699364,0.425861,PASS,FAIL,903201,362D1414-2692-4503-9C5B-8C74D01DB559,PF2334MDOR3AA0393,2023-09-22 12:43:02,2023-09-22 12:43:12,STQ239YMR301,monolith_solar_panel_right_ft,10023223
+2,Test_first_temp_1,23,30,C,22.9,0.000000,FAIL,FAIL,903201,362D1414-2692-4503-9C5B-8C74D01DB559,PF2334MDOR3AA0393,2023-09-22 12:43:02,2023-09-22 12:43:12,STQ239YMR301,monolith_solar_panel_right_ft,10023223

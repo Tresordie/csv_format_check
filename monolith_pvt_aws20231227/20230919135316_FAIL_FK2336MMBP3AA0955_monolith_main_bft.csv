@@ -1,0 +1,4 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,MES_101_Command_Send,PASS,PASS,,PASS,0.021250,PASS,FAIL,101003,58B6AEB4-0FE1-4655-8153-EFC326D4764E,FK2336MMBP3AA0955,2023-09-19 13:52:51,2023-09-19 13:53:16,STT239MM01,monolith_main_bft,10023100
+2,Unlock_MCU_Write_Protect,PASS,PASS,,PASS,0.23,PASS,FAIL,101003,58B6AEB4-0FE1-4655-8153-EFC326D4764E,FK2336MMBP3AA0955,2023-09-19 13:52:51,2023-09-19 13:53:16,STT239MM01,monolith_main_bft,10023100
+3,Flash_STLink,PASS,PASS,,FAIL,0.41,FAIL,FAIL,101003,58B6AEB4-0FE1-4655-8153-EFC326D4764E,FK2336MMBP3AA0955,2023-09-19 13:52:51,2023-09-19 13:53:16,STT239MM01,monolith_main_bft,10023100

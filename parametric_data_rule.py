@@ -1,4 +1,13 @@
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+@File    :   parametric_data_rule.py
+@Time    :   2024/01/01 21:04:02
+@Author  :   SimonYuan 
+@Version :   1.0
+@Site    :   https://tresordie.github.io/
+@Desc    :   parametric csv log格式检查, 检查完成后, 输出格式有问题的csv log及细节到csv文件记录, 并将格式有问题的csv log拷贝到指定文件夹下
+"""
 
 
 from csv_operate import *
@@ -25,22 +34,22 @@ class parametric_data_rule(object):
         # csv files to be validated
         self.target_validation_folder_path = target_validation_folder_path
 
-        self.current_validating_file_fullpath = ''
-        self.current_validating_filename = ''
+        self.current_validating_file_fullpath = ""
+        self.current_validating_filename = ""
         self.current_validating_file_rows = 0
         self.current_validating_file_columns = 0
 
         # output result which will be written into output_csv_file
-        self.validate_result = ['', '']
+        self.validate_result = ["", ""]
 
         # export file path & filename
         self.export_file_path = export_file_path
 
         self.export_file_fullpath = (
             self.export_file_path
-            + 'parametirc_format_validation_'
+            + "parametirc_format_validation_"
             + generate_time_stamp()
-            + '.csv'
+            + ".csv"
         )
         self.export_file_header = ["File_Path", "Result", "DRI"]
 
@@ -110,11 +119,11 @@ class parametric_data_rule(object):
         #     print("folder exist!")
 
     def get_sn(self):
-        tmp_sn = self.self.current_validating_filename.split('_')[2]
+        tmp_sn = self.self.current_validating_filename.split("_")[2]
         return tmp_sn
 
     def get_overall_test_result_from_filename(self):
-        return self.current_validating_filename.split('_')[1]
+        return self.current_validating_filename.split("_")[1]
 
     def csv_file_name_check(self):
         """_summary_:
@@ -125,10 +134,10 @@ class parametric_data_rule(object):
         """
 
         filename = self.current_validating_filename.split(".csv")[0]
-        filename_split = filename.split('_')
+        filename_split = filename.split("_")
 
         if len(filename_split) <= 4:
-            self.validate_result[1] += 'file name format error\n'
+            self.validate_result[1] += "file name format error\n"
 
     def csv_head_row_check(self):
         """_summary_
@@ -140,7 +149,7 @@ class parametric_data_rule(object):
         head_row_list = pd_read_csv_row(self.current_validating_file_fullpath, 0)
 
         if len(head_row_list) != len(self.standard_csv_format_header):
-            self.validate_result[1] += 'head row length mismatch\n'
+            self.validate_result[1] += "head row length mismatch\n"
         else:
             for i in range(len(self.standard_csv_format_header)):
                 if head_row_list[i] != self.standard_csv_format_header[i]:
@@ -148,19 +157,19 @@ class parametric_data_rule(object):
                     #     'head row ' + str(i) + ' content mismatch\n'
                     # )
 
-                    self.validate_result[1] += 'head_row[%d] content mismatch\n' % i
+                    self.validate_result[1] += "head_row[%d] content mismatch\n" % i
 
     def csv_row_length_check(self, row_index, row_list):
         if len(row_list) != len(self.standard_csv_format_header):
-            self.validate_result[1] += 'row[%d] length mismatch\n' % row_index
+            self.validate_result[1] += "row[%d] length mismatch\n" % row_index
 
     def csv_row_record_index_check(self, row_index, row_list):
         if row_index != int(row_list[0]):
-            self.validate_result[1] += 'record_index[%d] number mismatch\n' % row_index
+            self.validate_result[1] += "record_index[%d] number mismatch\n" % row_index
 
     def csv_row_test_name_check(self, row_index, row_list):
         if not row_list[1]:
-            self.validate_result[1] += 'row[%d] -- test_name empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- test_name empty\n" % row_index
         else:
             if (
                 (" " in row_list[1])
@@ -196,38 +205,38 @@ class parametric_data_rule(object):
                 or ("?" in row_list[1])
             ):
                 self.validate_result[1] += (
-                    'row[%d] -- test_name illegal character\n' % row_index
+                    "row[%d] -- test_name illegal character\n" % row_index
                 )
 
     def csv_row_lower_limit_check(self, row_index, row_list):
         if not row_list[2]:
-            self.validate_result[1] += 'row[%d] -- lower_limit empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- lower_limit empty\n" % row_index
 
     def csv_row_upper_limit_check(self, row_index, row_list):
         if not row_list[3]:
-            self.validate_result[1] += 'row[%d] -- upper_limit empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- upper_limit empty\n" % row_index
 
     def csv_row_test_value_check(self, row_index, row_list):
         if not row_list[5]:
-            self.validate_result[1] += 'row[%d] -- test_value empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- test_value empty\n" % row_index
 
     def csv_row_test_time_check(self, row_index, row_list):
         if not row_list[6]:
-            self.validate_result[1] += 'row[%d] -- test_time empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- test_time empty\n" % row_index
 
     def csv_row_pass_fail_status_check(self, row_index, row_list):
         if not row_list[7]:
-            self.validate_result[1] += 'row[%d] -- pass_fail_status empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- pass_fail_status empty\n" % row_index
         else:
             if "PASS" != row_list[7] and "FAIL" != row_list[7]:
                 self.validate_result[1] += (
-                    'row[%d] -- pass_fail_status with illegal content\n' % row_index
+                    "row[%d] -- pass_fail_status with illegal content\n" % row_index
                 )
 
     def csv_row_overall_test_result_check(self, row_index, row_list):
         if not row_list[8]:
             self.validate_result[1] += (
-                'row[%d] -- overall_test_result empty\n' % row_index
+                "row[%d] -- overall_test_result empty\n" % row_index
             )
         else:
             if "PASS" != row_list[8] and "FAIL" != row_list[8]:
@@ -238,38 +247,38 @@ class parametric_data_rule(object):
 
     def csv_row_exit_status_check(self, row_index, row_list):
         if not row_list[9]:
-            self.validate_result[1] += 'row[%d] -- exit_status empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- exit_status empty\n" % row_index
         else:
             if not row_list[9].isdigit():
                 self.validate_result[1] += (
-                    'row[%d] -- exit_status is NOT digital numbers\n' % row_index
+                    "row[%d] -- exit_status is NOT digital numbers\n" % row_index
                 )
-            elif 'PASS' == row_list[8] and '0' != row_list[9]:
+            elif "PASS" == row_list[8] and "0" != row_list[9]:
                 self.validate_result[1] += (
-                    'row[%d] -- exit_status is NOT 0 when overall_test_result pass\n'
+                    "row[%d] -- exit_status is NOT 0 when overall_test_result pass\n"
                     % row_index
                 )
-            elif 'FAIL' == row_list[8] and '0' == row_list[9]:
+            elif "FAIL" == row_list[8] and "0" == row_list[9]:
                 self.validate_result[1] += (
-                    'row[%d] -- exit_status is 0 when overall_test_result fail\n'
+                    "row[%d] -- exit_status is 0 when overall_test_result fail\n"
                     % row_index
                 )
 
     def csv_row_test_run_uuid_check(self, row_index, row_list):
         if not row_list[10]:
-            self.validate_result[1] += 'row[%d] -- test_run_uuid empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- test_run_uuid empty\n" % row_index
         else:
-            uuid_split_list = row_list[10].split('-')
+            uuid_split_list = row_list[10].split("-")
             for i in range(len(uuid_split_list)):
                 if not uuid_split_list[i].isalnum():
                     self.validate_result[1] += (
-                        'row[%d] -- test_run_uuid section[%d] content is NOT alpha & numbers\n'
+                        "row[%d] -- test_run_uuid section[%d] content is NOT alpha & numbers\n"
                         % (row_index, i)
                     )
 
                 if len(uuid_split_list[i]) != self.uuid_section_length[i]:
                     self.validate_result[1] += (
-                        'row[%d] -- test_run_uuid section[%d] with error length(current length is %d, expected: %d)\n'
+                        "row[%d] -- test_run_uuid section[%d] with error length(current length is %d, expected: %d)\n"
                         % (
                             row_index,
                             i,
@@ -280,16 +289,16 @@ class parametric_data_rule(object):
 
     def csv_row_sn_check(self, row_index, row_list):
         if not row_list[11]:
-            self.validate_result[1] += 'row[%d] -- sn empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- sn empty\n" % row_index
         else:
             if not row_list[11].isalnum():
                 self.validate_result[
                     1
-                ] += 'row[%d] -- sn content is NOT alpha & numbers\n' % (row_index)
+                ] += "row[%d] -- sn content is NOT alpha & numbers\n" % (row_index)
 
             if len(row_list[11]) < 15 or len(row_list[11]) > 17:
                 self.validate_result[1] += (
-                    'row[%d] -- sn length error(current length: %d, expected: 15~17)\n'
+                    "row[%d] -- sn length error(current length: %d, expected: 15~17)\n"
                     % (row_index, len(row_list[11]))
                 )
 
@@ -299,7 +308,7 @@ class parametric_data_rule(object):
             if len(date_time_split) != 2:
                 self.validate_result[
                     1
-                ] += 'row[%d] -- start_time(%s) date/time missing\n' % (
+                ] += "row[%d] -- start_time(%s) date/time missing\n" % (
                     row_index,
                     row_list[12],
                 )
@@ -316,7 +325,7 @@ class parametric_data_rule(object):
                 ):
                     self.validate_result[
                         1
-                    ] += 'row[%d] -- start_time: date(%s) content error\n' % (
+                    ] += "row[%d] -- start_time: date(%s) content error\n" % (
                         row_index,
                         date_time_split[0],
                     )
@@ -333,12 +342,12 @@ class parametric_data_rule(object):
                 ):
                     self.validate_result[
                         1
-                    ] += 'row[%d] -- start_time: time(%s) content error\n' % (
+                    ] += "row[%d] -- start_time: time(%s) content error\n" % (
                         row_index,
                         date_time_split[1],
                     )
         else:
-            self.validate_result[1] += 'row[%d] -- start_time empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- start_time empty\n" % row_index
 
     def csv_row_end_time_check(self, row_index, row_list):
         if row_list[13]:
@@ -346,7 +355,7 @@ class parametric_data_rule(object):
             if len(date_time_split) != 2:
                 self.validate_result[
                     1
-                ] += 'row[%d] -- end_time(%s) date/time missing\n' % (
+                ] += "row[%d] -- end_time(%s) date/time missing\n" % (
                     row_index,
                     row_list[13],
                 )
@@ -363,7 +372,7 @@ class parametric_data_rule(object):
                 ):
                     self.validate_result[
                         1
-                    ] += 'row[%d] -- end_time: date(%s) content error\n' % (
+                    ] += "row[%d] -- end_time: date(%s) content error\n" % (
                         row_index,
                         date_time_split[0],
                     )
@@ -380,28 +389,28 @@ class parametric_data_rule(object):
                 ):
                     self.validate_result[
                         1
-                    ] += 'row[%d] -- end_time: time(%s) content error\n' % (
+                    ] += "row[%d] -- end_time: time(%s) content error\n" % (
                         row_index,
                         date_time_split[1],
                     )
         else:
-            self.validate_result[1] += 'row[%d] -- end_time empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- end_time empty\n" % row_index
 
     def csv_row_work_order_check(self, row_index, row_list):
         if not row_list[14]:
-            self.validate_result[1] += 'row[%d] -- work_order empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- work_order empty\n" % row_index
         else:
             if not row_list[14].isalnum():
                 self.validate_result[
                     1
-                ] += 'row[%d] -- work_order(%s) with illegal character\n' % (
+                ] += "row[%d] -- work_order(%s) with illegal character\n" % (
                     row_index,
                     row_list[14],
                 )
             elif len(row_list[14]) < 8:
                 self.validate_result[
                     1
-                ] += 'row[%d] -- work_order(%s) with error length\n' % (
+                ] += "row[%d] -- work_order(%s) with error length\n" % (
                     row_index,
                     row_list[14],
                 )
@@ -409,10 +418,10 @@ class parametric_data_rule(object):
     def csv_row_test_station_name_check(self, row_index, row_list):
         if not row_list[15]:
             self.validate_result[1] += (
-                'row[%d] -- test_station_name empty\n' % row_index
+                "row[%d] -- test_station_name empty\n" % row_index
             )
         else:
-            station_name_split = row_list[15].split('_')
+            station_name_split = row_list[15].split("_")
             for i in range(len(station_name_split)):
                 if not station_name_split[i].isalpha():
                     self.validate_result[1] += (
@@ -422,10 +431,10 @@ class parametric_data_rule(object):
 
     def csv_row_test_station_id_check(self, row_index, row_list):
         if not row_list[16]:
-            self.validate_result[1] += 'row[%d] -- test_station_id empty\n' % row_index
+            self.validate_result[1] += "row[%d] -- test_station_id empty\n" % row_index
         elif not row_list[16].isdigit():
             self.validate_result[1] += (
-                'row[%d] -- test_station_id(%s) with illegal content(NOT Digitals)\n'
+                "row[%d] -- test_station_id(%s) with illegal content(NOT Digitals)\n"
                 % (
                     row_index,
                     row_list[16],
@@ -465,30 +474,30 @@ class parametric_data_rule(object):
             column_index (string): column index of parametric data
             column_list (string): column list of parametric data
         """
-        if 'PASS' == self.get_overall_test_result_from_filename():
+        if "PASS" == self.get_overall_test_result_from_filename():
             for i in range(1, self.current_validating_file_rows):
-                if column_list[i] != 'PASS':
+                if column_list[i] != "PASS":
                     self.validate_result[1] += (
                         "column[%d] -- pass_fail_status: row[%d] NOT match overall_test_result(PASS)\n"
                         % (column_index, i)
                     )
-        elif 'FAIL' == self.get_overall_test_result_from_filename():
+        elif "FAIL" == self.get_overall_test_result_from_filename():
             counter_items_in_column_list = Counter(column_list)
 
-            if counter_items_in_column_list['FAIL'] == 0:
+            if counter_items_in_column_list["FAIL"] == 0:
                 self.validate_result[1] += (
                     'column[%d] -- pass_fail_status all items "PASS"(overall_result: "FAIL")\n'
                     % (column_index)
                 )
-            elif counter_items_in_column_list['FAIL'] > 1:
+            elif counter_items_in_column_list["FAIL"] > 1:
                 self.validate_result[1] += (
-                    'column[%d] -- pass_fail_status with multi-items fail(NOT StopOnFail)\n'
+                    "column[%d] -- pass_fail_status with multi-items fail(NOT StopOnFail)\n"
                     % (column_index)
                 )
         else:
             self.validate_result[
                 1
-            ] += 'column[%d] -- pass_fail_status with illegal PASS/FAIL characters\n' % (
+            ] += "column[%d] -- pass_fail_status with illegal PASS/FAIL characters\n" % (
                 column_index
             )
 
@@ -497,12 +506,12 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- overall_test_result with multiple test result(expected padding with same content)\n'
+                "column[%d] -- overall_test_result with multiple test result(expected padding with same content)\n"
                 % (column_index)
             )
         elif column_list_set[0] != self.get_overall_test_result_from_filename():
             self.validate_result[1] += (
-                'column[%d] -- overall_test_result with illegal PASS/FAIL characters\n'
+                "column[%d] -- overall_test_result with illegal PASS/FAIL characters\n"
                 % (column_index)
             )
 
@@ -511,31 +520,31 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- exit_status with multiple error code(expected padding with same content)\n'
+                "column[%d] -- exit_status with multiple error code(expected padding with same content)\n"
                 % (column_index)
             )
         else:
             if not column_list_set[0].isdigit():
                 self.validate_result[
                     1
-                ] += 'column[%d] -- exit_status DataType error(expected digitals)\n' % (
+                ] += "column[%d] -- exit_status DataType error(expected digitals)\n" % (
                     column_index
                 )
             else:
                 if (
-                    'PASS' == self.get_overall_test_result_from_filename()
+                    "PASS" == self.get_overall_test_result_from_filename()
                     and int(column_list_set[0]) != 0
                 ):
                     self.validate_result[1] += (
-                        'column[%d] -- exit_status value error(expected error_code: 0)\n'
+                        "column[%d] -- exit_status value error(expected error_code: 0)\n"
                         % (column_index)
                     )
                 elif (
-                    'FAIL' == self.get_overall_test_result_from_filename()
+                    "FAIL" == self.get_overall_test_result_from_filename()
                     and int(column_list_set[0]) == 0
                 ):
                     self.validate_result[1] += (
-                        'column[%d] -- exit_status value error(expected error_code: NON-ZERO)\n'
+                        "column[%d] -- exit_status value error(expected error_code: NON-ZERO)\n"
                         % (column_index)
                     )
 
@@ -544,7 +553,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- test_run_uuid with multiple value(expected padding with same content)\n'
+                "column[%d] -- test_run_uuid with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -553,7 +562,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- sn with multiple value(expected padding with same content)\n'
+                "column[%d] -- sn with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -562,7 +571,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- start_time with multiple value(expected padding with same content)\n'
+                "column[%d] -- start_time with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -571,7 +580,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- end_time with multiple value(expected padding with same content)\n'
+                "column[%d] -- end_time with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -580,7 +589,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- work_order with multiple value(expected padding with same content)\n'
+                "column[%d] -- work_order with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -589,7 +598,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- test_station_name with multiple value(expected padding with same content)\n'
+                "column[%d] -- test_station_name with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -598,7 +607,7 @@ class parametric_data_rule(object):
 
         if len(column_list_set) != 1:
             self.validate_result[1] += (
-                'column[%d] -- test_station_id with multiple value(expected padding with same content)\n'
+                "column[%d] -- test_station_id with multiple value(expected padding with same content)\n"
                 % (column_index)
             )
 
@@ -753,18 +762,18 @@ class parametric_data_rule(object):
 
                 print(sys._getframe().f_code.co_name)
                 print(self.validate_result)
-                print('\n')
+                print("\n")
 
-                self.current_validating_file_fullpath = ''
-                self.current_validating_filename = ''
+                self.current_validating_file_fullpath = ""
+                self.current_validating_filename = ""
                 self.current_validating_file_rows = 0
                 self.current_validating_file_columns = 0
-                self.validate_result = ['', '']
+                self.validate_result = ["", ""]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parametric_data_rule = parametric_data_rule(
-        './monolith_pvt_aws20231227', './', './20231228_asw_csv_check'
+        "./monolith_pvt_aws20231227", "./", "./20231228_asw_csv_check"
     )
 
     parametric_data_rule.parametric_format_validation()

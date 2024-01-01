@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,MES_101_Command_Send,PASS,PASS,,FAILED,0.028079,FAIL,FAIL,999999,345E57C2-BEEE-4BB2-BD7F-160FFBCC09BE,FK2337MCAM3NC0004,2023-09-14 09:41:51,2023-09-14 09:42:00,STQ239YM4201,monolith_cassette_ft,10023023

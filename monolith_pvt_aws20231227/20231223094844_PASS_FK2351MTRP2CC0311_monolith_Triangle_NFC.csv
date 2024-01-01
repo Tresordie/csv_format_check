@@ -1,0 +1,3 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,nfc_rideable_run,PASS,PASS,,PASS,1.22,PASS,PASS,0,c4185349-8a3d-40da-9e9f-d08d9354738c,FK2351MTRP2CC0311,2023-12-23 09:48:18,2023-12-23 09:48:44,STT23CTN01,monolith_Triangle_NFC,001
+2,nfc_rideable_total_detect_count,1,999,,1,4.58,PASS,PASS,0,c4185349-8a3d-40da-9e9f-d08d9354738c,FK2351MTRP2CC0311,2023-12-23 09:48:18,2023-12-23 09:48:44,STT23CTN01,monolith_Triangle_NFC,001

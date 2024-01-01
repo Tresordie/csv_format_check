@@ -1,0 +1,4 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,Human_Check_Solar_L_ON,PASS,PASS,,PASS,1.820798,PASS,FAIL,902003,E0836670-1EBA-4E02-84D1-5C634A7951A2,FK2342MFAT3AB0017,2023-10-16 16:41:56,2023-10-16 16:42:52,STA23AYM5302,monolith_bollard_ft,10023020
+2,opmode_force_dev_mode,PASS,PASS,,PASS,1.298241,PASS,FAIL,902003,E0836670-1EBA-4E02-84D1-5C634A7951A2,FK2342MFAT3AB0017,2023-10-16 16:41:56,2023-10-16 16:42:52,STA23AYM5302,monolith_bollard_ft,10023020
+3,opmode_get_state,PASS,PASS,,FAIL,1.165321,FAIL,FAIL,902003,E0836670-1EBA-4E02-84D1-5C634A7951A2,FK2342MFAT3AB0017,2023-10-16 16:41:56,2023-10-16 16:42:52,STA23AYM5302,monolith_bollard_ft,10023020

@@ -1,0 +1,2 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,ANT_resonant_frequency,13.5,13.9,MHz,13.389,9.464856,FAIL,FAIL,230001,E6C1C9AE-1C36-457B-98F5-11C08E7EB4E5,FK2338MRCM3AA0200,2023-09-19 18:37:21,2023-09-19 18:37:50,STQ239YM3301,monolith_receiver_ft,10023006

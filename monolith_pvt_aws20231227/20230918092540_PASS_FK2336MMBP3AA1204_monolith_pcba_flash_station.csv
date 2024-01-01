@@ -1,0 +1,6 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,Disable_RDP,PASS,PASS,,PASS,0.83,PASS,PASS,0,447f7db2-c2c3-4432-8b54-e50ce8ba0beb,FK2336MMBP3AA1204,2023-09-18 09:24:52,2023-09-18 09:25:40,STT239MM01,monolith_pcba_flash_station,001
+2,Load_Recovery_Image,PASS,PASS,,PASS,10.69,PASS,PASS,0,447f7db2-c2c3-4432-8b54-e50ce8ba0beb,FK2336MMBP3AA1204,2023-09-18 09:24:52,2023-09-18 09:25:40,STT239MM01,monolith_pcba_flash_station,001
+3,Load_LFS_EXT_Asset,PASS,PASS,,PASS,15.55,PASS,PASS,0,447f7db2-c2c3-4432-8b54-e50ce8ba0beb,FK2336MMBP3AA1204,2023-09-18 09:24:52,2023-09-18 09:25:40,STT239MM01,monolith_pcba_flash_station,001
+4,Flash_main_FW_Image,PASS,PASS,,PASS,13.88,PASS,PASS,0,447f7db2-c2c3-4432-8b54-e50ce8ba0beb,FK2336MMBP3AA1204,2023-09-18 09:24:52,2023-09-18 09:25:40,STT239MM01,monolith_pcba_flash_station,001
+5,Enable_RDP,PASS,PASS,,PASS,2.02,PASS,PASS,0,447f7db2-c2c3-4432-8b54-e50ce8ba0beb,FK2336MMBP3AA1204,2023-09-18 09:24:52,2023-09-18 09:25:40,STT239MM01,monolith_pcba_flash_station,001

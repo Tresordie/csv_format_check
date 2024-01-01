@@ -1,0 +1,4 @@
+record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
+1,MES_101_Command_Send,PASS,PASS,,PASS,0.013989,PASS,FAIL,201005,14920B0F-FE9B-4E94-8624-EF3A763E82D8,FK2338MCAM3CC0041,2023-09-22 14:08:48,2023-09-22 14:09:26,STQ239YM4301,monolith_cassette_ft,10023023
+2,opmode_force_dev_mode,PASS,PASS,,PASS,1.277250,PASS,FAIL,201005,14920B0F-FE9B-4E94-8624-EF3A763E82D8,FK2338MCAM3CC0041,2023-09-22 14:08:48,2023-09-22 14:09:26,STQ239YM4301,monolith_cassette_ft,10023023
+3,opmode_get_state,PASS,PASS,,FAIL,1.151340,FAIL,FAIL,201005,14920B0F-FE9B-4E94-8624-EF3A763E82D8,FK2338MCAM3CC0041,2023-09-22 14:08:48,2023-09-22 14:09:26,STQ239YM4301,monolith_cassette_ft,10023023
