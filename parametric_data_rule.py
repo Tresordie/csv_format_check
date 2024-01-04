@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 @File    :   parametric_data_rule.py
@@ -6,7 +6,7 @@
 @Author  :   SimonYuan 
 @Version :   1.0
 @Site    :   https://tresordie.github.io/
-@Desc    :   parametric csv log¸ñÊ½¼ì²é, ¼ì²éÍê³Éºó, Êä³ö¸ñÊ½ÓÐÎÊÌâµÄcsv log¼°Ï¸½Úµ½csvÎÄ¼þ¼ÇÂ¼, ²¢½«¸ñÊ½ÓÐÎÊÌâµÄcsv log¿½±´µ½Ö¸¶¨ÎÄ¼þ¼ÐÏÂ
+@Desc    :   parametric csv logæ ¼å¼æ£€æŸ¥, æ£€æŸ¥å®ŒæˆåŽ, è¾“å‡ºæ ¼å¼æœ‰é—®é¢˜çš„csv logåŠç»†èŠ‚åˆ°csvæ–‡ä»¶è®°å½•, å¹¶å°†æ ¼å¼æœ‰é—®é¢˜çš„csv logæ‹·è´åˆ°æŒ‡å®šæ–‡ä»¶å¤¹ä¸‹
 """
 
 
@@ -16,6 +16,7 @@ import os
 import re
 import sys
 import shutil
+from tqdm import tqdm
 
 
 class parametric_data_rule(object):
@@ -44,13 +45,11 @@ class parametric_data_rule(object):
 
         # export file path & filename
         self.export_file_path = export_file_path
-
-        self.export_file_fullpath = (
-            self.export_file_path
-            + "parametirc_format_validation_"
-            + generate_time_stamp()
-            + ".csv"
+        self.export_file_name = (
+            "parametirc_format_validation_" + generate_time_stamp() + ".csv"
         )
+
+        self.export_file_fullpath = self.export_file_path + self.export_file_name
         self.export_file_header = ["File_Path", "Result", "DRI"]
 
         creat_csv(self.export_file_fullpath, self.export_file_header)
@@ -146,7 +145,10 @@ class parametric_data_rule(object):
         Returns:
             _type_: _description_
         """
-        head_row_list = pd_read_csv_row(self.current_validating_file_fullpath, 0)
+        # head_row_list = pd_read_csv_row(self.current_validating_file_fullpath, 0)
+        head_row_list = pd_read_csv_row_big_file_size(
+            self.current_validating_file_fullpath, 0
+        )
 
         if len(head_row_list) != len(self.standard_csv_format_header):
             self.validate_result[1] += "head row length mismatch\n"
@@ -445,8 +447,11 @@ class parametric_data_rule(object):
         """_summary_
         check if all rows contents' format
         """
-        for i in range(1, self.current_validating_file_rows):
-            row_list = pd_read_csv_row(self.current_validating_file_fullpath, i)
+        for i in tqdm(range(1, self.current_validating_file_rows)):
+            # row_list = pd_read_csv_row(self.current_validating_file_fullpath, i)
+            row_list = pd_read_csv_row_big_file_size(
+                self.current_validating_file_fullpath, i
+            )
             self.csv_row_length_check(i, row_list)
 
             self.csv_row_record_index_check(i, row_list)
@@ -616,19 +621,29 @@ class parametric_data_rule(object):
         check if all columns contents' format
         """
         # pass_fail_status
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["pass_fail_status"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["pass_fail_status"],
         )
+
         self.csv_column_pass_fail_status_check(
             self.standard_csv_format_header_index_dict["pass_fail_status"], column_list
         )
 
         # overall_test_result
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["overall_test_result"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["overall_test_result"],
         )
+
         column_list.pop(0)
 
         self.csv_column_overall_test_result_check(
@@ -637,10 +652,15 @@ class parametric_data_rule(object):
         )
 
         # exit_status
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["exit_status"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["exit_status"],
         )
+
         column_list.pop(0)
 
         self.csv_column_exit_status_check(
@@ -648,10 +668,15 @@ class parametric_data_rule(object):
         )
 
         # test_run_uuid
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["test_run_uuid"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["test_run_uuid"],
         )
+
         column_list.pop(0)
 
         self.csv_column_test_run_uuid_check(
@@ -659,10 +684,15 @@ class parametric_data_rule(object):
         )
 
         # sn
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["sn"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["sn"],
         )
+
         column_list.pop(0)
 
         self.csv_column_sn_check(
@@ -670,10 +700,15 @@ class parametric_data_rule(object):
         )
 
         # start_time
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["start_time"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["start_time"],
         )
+
         column_list.pop(0)
 
         self.csv_column_start_time_check(
@@ -681,10 +716,15 @@ class parametric_data_rule(object):
         )
 
         # end_time
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["end_time"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["end_time"],
         )
+
         column_list.pop(0)
 
         self.csv_column_end_time_check(
@@ -692,10 +732,15 @@ class parametric_data_rule(object):
         )
 
         # work_order
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["work_order"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["work_order"],
         )
+
         column_list.pop(0)
 
         self.csv_column_work_order_check(
@@ -703,7 +748,11 @@ class parametric_data_rule(object):
         )
 
         # test_station_name
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["test_station_name"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["test_station_name"],
         )
@@ -714,7 +763,11 @@ class parametric_data_rule(object):
         )
 
         # test_station_id
-        column_list = pd_read_csv_column(
+        # column_list = pd_read_csv_column(
+        #     self.current_validating_file_fullpath,
+        #     self.standard_csv_format_header_index_dict["test_station_id"],
+        # )
+        column_list = pd_read_csv_column_big_file_size(
             self.current_validating_file_fullpath,
             self.standard_csv_format_header_index_dict["test_station_id"],
         )
@@ -730,50 +783,57 @@ class parametric_data_rule(object):
         # ['20231220163854_FAIL_FK2348MFAT3AA0002_monolith_bollard_ft.csv', '20231220163854_FAIL_FK2348MFAT3AA0002_monolith_bollard_ft.txt']
         for fn in file_name_list:
             if re.search(r"\.csv$", fn):
-                self.current_validating_filename = fn
-                self.validate_result[0] = self.current_validating_filename
+                if fn != self.export_file_name:
+                    self.current_validating_filename = fn
+                    self.validate_result[0] = self.current_validating_filename
 
-                # full_file_path
-                self.current_validating_file_fullpath = os.path.join(
-                    self.target_validation_folder_path, fn
-                )
-                print(self.current_validating_file_fullpath)
+                    # full_file_path
+                    self.current_validating_file_fullpath = os.path.join(
+                        self.target_validation_folder_path, fn
+                    )
+                    print(self.current_validating_file_fullpath)
 
-                self.current_validating_file_rows = get_rows_quantity(
-                    self.current_validating_file_fullpath
-                )
-                self.current_validating_file_columns = get_columns_quantity(
-                    self.current_validating_file_fullpath
-                )
-
-                self.csv_file_name_check()
-                self.csv_head_row_check()
-
-                if self.current_validating_file_rows > 1:
-                    self.csv_rows_content_check()
-                    self.csv_columns_content_check()
-
-                if self.validate_result[1]:
-                    write_row_to_csv(self.validate_result, self.export_file_fullpath)
-                    shutil.copy(
-                        self.current_validating_file_fullpath,
-                        self.error_format_csv_destination_path,
+                    tmp_rows_columns = get_rows_columns_quantity_big_file_size(
+                        self.current_validating_file_fullpath
                     )
 
-                print(sys._getframe().f_code.co_name)
-                print(self.validate_result)
-                print("\n")
+                    # self.current_validating_file_rows = get_rows_quantity(
+                    #     self.current_validating_file_fullpath
+                    # )
+                    # self.current_validating_file_columns = get_columns_quantity(
+                    #     self.current_validating_file_fullpath
+                    # )
 
-                self.current_validating_file_fullpath = ""
-                self.current_validating_filename = ""
-                self.current_validating_file_rows = 0
-                self.current_validating_file_columns = 0
-                self.validate_result = ["", ""]
+                    self.current_validating_file_rows = tmp_rows_columns[0]
+                    self.current_validating_file_columns = tmp_rows_columns[1]
+
+                    self.csv_file_name_check()
+                    self.csv_head_row_check()
+
+                    if self.current_validating_file_rows > 1:
+                        self.csv_rows_content_check()
+                        self.csv_columns_content_check()
+
+                    if self.validate_result[1]:
+                        write_row_to_csv(
+                            self.validate_result, self.export_file_fullpath
+                        )
+                        shutil.copy(
+                            self.current_validating_file_fullpath,
+                            self.error_format_csv_destination_path,
+                        )
+
+                    print(sys._getframe().f_code.co_name)
+                    print(self.validate_result)
+                    print("\n")
+
+                    self.current_validating_file_fullpath = ""
+                    self.current_validating_filename = ""
+                    self.current_validating_file_rows = 0
+                    self.current_validating_file_columns = 0
+                    self.validate_result = ["", ""]
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule(
-        "./monolith_pvt_aws20231227", "./", "./20231228_asw_csv_check"
-    )
-
+    parametric_data_rule = parametric_data_rule("./", "./", "./20240103_sfc_csv_check")
     parametric_data_rule.parametric_format_validation()

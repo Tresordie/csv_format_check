@@ -5,6 +5,73 @@ import csv
 import datetime
 import pandas as pd
 import time
+from tqdm import tqdm
+
+
+def get_total_dataframe_big_file_size(csv_file):
+    tmp_chunk = []
+    df_chunk_text_file_reader = pd.read_csv(csv_file, header=None, chunksize=10000)
+    for each_chunk in df_chunk_text_file_reader:
+        tmp_chunk.append(each_chunk)
+
+    total_df = pd.concat(tmp_chunk)
+    return total_df
+
+
+def get_rows_columns_quantity_big_file_size(csv_file):
+    total_df = get_total_dataframe_big_file_size(csv_file=csv_file)
+    return total_df.shape
+
+
+def pd_read_csv_head_big_file_size(csv_path):
+    total_df = get_total_dataframe_big_file_size(csv_path)
+    # print(list(total_df.columns.values))
+    return list(total_df.columns.values)
+
+
+def pd_read_csv_rows_list_big_file_size(csv_path):
+    rows_list = []
+    total_df = get_total_dataframe_big_file_size(csv_path)
+    tuple_rows_columns = total_df.shape
+
+    for row in tqdm(range(tuple_rows_columns[0])):
+        rows_list.append(total_df.iloc[row, :])
+
+    # print(rows_list[0])
+    # print(rows_list[len(rows_list) - 1])
+    return rows_list
+
+
+def pd_read_csv_columns_list_big_file_size(csv_path):
+    columns_list = []
+    total_df = get_total_dataframe_big_file_size(csv_path)
+    tuple_rows_columns = total_df.shape
+
+    for column in tqdm(range(tuple_rows_columns[1])):
+        columns_list.append(total_df.iloc[:, column])
+
+    # print(columns_list[0])
+    # print(columns_list[len(columns_list) - 1])
+    return columns_list
+
+
+def pd_read_csv_row_big_file_size(csv_path, row_index):
+    total_df = get_total_dataframe_big_file_size(csv_path)
+    # print(total_df.iloc[row_index, :])
+    return total_df.iloc[row_index, :]
+
+
+def pd_read_csv_column_big_file_size(csv_path, column_index):
+    total_df = get_total_dataframe_big_file_size(csv_path)
+    # print(total_df.iloc[:, column_index])
+    return total_df.iloc[:, column_index]
+
+
+def pd_read_csv_cell(csv_path, row_num, column_num):
+    df = pd.read_csv(csv_path, header=None, keep_default_na=False)
+    # print(type(df.iloc[row_num, column_num]))
+    # print(df.iloc[row_num, column_num])
+    return df.iloc[row_num, column_num]
 
 
 def get_rows_quantity(csv_file):
