@@ -781,7 +781,5 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule(
-        "./triangle_resistance_grr_log_0113", "./", "./20240112_sfc_csv_check"
-    )
+    parametric_data_rule = parametric_data_rule("./maple_bms", "./", "./20240429_bms")
     parametric_data_rule.parametric_format_validation()

@@ -1,0 +1,762 @@
+***************
+Station: monolith_bollard_ft
+FixtureID: 1
+SN: FK2408MFAT4AC0195
+***************
+1.****MES_101_Command_Send****
+Start:11:25:41
+End:11:25:41
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:0.105928
+CT:CMD:101;STA242YM5302;1961113;10023020;FK2408MFAT4AC0195;
+Output:OK;OK;
+2.****Human_Check_Solar_L_ON****
+Start:11:25:41
+End:11:25:49
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:8.379375
+CT:Operator confirmation
+Output:PASS
+3.****____Power_On_12V____****
+Start:11:25:50
+End:11:25:50
+Retrt:0
+Result:Pass
+Value:
+CT:
+4.****Power_On_Recovery_12V****
+Start:11:25:50
+End:11:25:51
+Retrt:0
+Result:Pass
+Value:
+CT:
+5.****opmode_force_dev_mode****
+Start:11:26:26
+End:11:26:28
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.399202
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_force_dev_mode"
+Output:-- ROUTINE PASS --
+
+6.****opmode_get_state****
+Start:11:26:32
+End:11:26:33
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.270223
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_get_state"
+Output:OPMODE_DEV
+
+-- ROUTINE PASS --
+
+7.****____Recovery_port_check____****
+Start:11:26:37
+End:11:26:37
+Retrt:0
+Result:Pass
+Value:
+CT:
+8.****Recovery_port_check****
+Start:11:26:37
+End:11:26:38
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.281252
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine res_power_status"
+Output:Status: 1
+-- ROUTINE PASS --
+
+9.****____TST_FW____****
+Start:11:26:40
+End:11:26:40
+Retrt:0
+Result:Pass
+Value:
+CT:
+10.****FW_Version****
+Start:11:26:40
+End:11:26:41
+Retrt:0
+Result:Pass
+Value:2023.34.102
+Addition:1.052387
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data version"
+Output:version: (2023, 34, 102)
+
+11.****____TST_HW_Version____****
+Start:11:26:41
+End:11:26:41
+Retrt:0
+Result:Pass
+Value:
+CT:
+12.****NonCharging_SKU_Hw_Version1****
+Start:11:26:41
+End:11:26:42
+Retrt:0
+Result:Pass
+Value:Solar
+Addition:1.085371
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data monolith_sku"
+Output:monolith_sku: Solar
+
+13.****____TST_Solar_L____****
+Start:11:26:42
+End:11:26:42
+Retrt:0
+Result:Pass
+Value:
+CT:
+14.****TST_Solar_L****
+Start:11:26:42
+End:11:26:44
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.271266
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine get_power_info"
+Output:  adc_sol_v: 6.408 V
+  adc_sol_i: 46024.000 uA
+  adc_bat_v: 3.932 V
+  adc_bat_i: 063880.0 uA
+  adc_lte_i: 12958.000 uA
+  adc_75v_v: 40.729 V
+  adc_mcu_temp_c: 22.000 C
+  adc_ntc1_c: 0.000 C
+  adc_ntc2_c: 0.000 C
+-- ROUTINE PASS --
+
+15.****TEST_Solar_L_Voltage****
+Start:11:26:44
+End:11:26:44
+Retrt:0
+Result:Pass
+Value:6.408
+Addition:0.000000
+CT:CMD:Solar_L_Voltage:
+Output:6.408V
+16.****TEST_Solar_L_Current****
+Start:11:26:44
+End:11:26:44
+Retrt:0
+Result:Pass
+Value:46024.000
+Addition:0.000000
+CT:CMD:Solar_L_Current
+Output:46024.000uA
+17.****Power_Off_Solar_L****
+Start:11:26:44
+End:11:26:45
+Retrt:0
+Result:Pass
+Value:
+CT:
+18.****Human_Check_Solar_L_OFF****
+Start:11:26:45
+End:11:26:47
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.066526
+CT:Operator confirmation
+Output:PASS
+19.****____TST_Solar_R____****
+Start:11:26:47
+End:11:26:47
+Retrt:0
+Result:Pass
+Value:
+CT:
+20.****Human_Check_Solar_R_ON****
+Start:11:26:47
+End:11:26:49
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.371404
+CT:Operator confirmation
+Output:PASS
+21.****TST_Solar_R****
+Start:11:26:50
+End:11:26:52
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.619047
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine get_power_info"
+Output:  adc_sol_v: 6.418 V
+  adc_sol_i: 41382.000 uA
+  adc_bat_v: 3.933 V
+  adc_bat_i: 058159.0 uA
+  adc_lte_i: 00.000 uA
+  adc_75v_v: 36.353 V
+  adc_mcu_temp_c: 22.000 C
+  adc_ntc1_c: 0.000 C
+  adc_ntc2_c: 0.000 C
+-- ROUTINE PASS --
+
+22.****TEST_Solar_R_Voltage****
+Start:11:26:52
+End:11:26:52
+Retrt:0
+Result:Pass
+Value:6.418
+Addition:0.000000
+CT:CMD:Solar_L_Voltage:
+Output:6.418V
+23.****TEST_Solar_R_Current****
+Start:11:26:52
+End:11:26:52
+Retrt:0
+Result:Pass
+Value:41382.000
+Addition:0.000000
+CT:CMD:Solar_L_Current
+Output:41382.000uA
+24.****Power_Off_Solar_R****
+Start:11:26:52
+End:11:26:53
+Retrt:0
+Result:Pass
+Value:
+CT:
+25.****Human_Check_Solar_R_OFF****
+Start:11:26:53
+End:11:26:55
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.705439
+CT:Operator confirmation
+Output:PASS
+26.****____TST_Battery____****
+Start:11:26:55
+End:11:26:55
+Retrt:0
+Result:Pass
+Value:
+CT:
+27.****BQ_charger_ON****
+Start:11:26:55
+End:11:26:57
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.258274
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_on"
+Output:-- ROUTINE PASS --
+
+28.****TST_Battery2****
+Start:11:27:01
+End:11:27:02
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.286258
+CT:  adc_sol_v: 2.270 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 3.929 V
+  adc_bat_i: -00433.0 uA
+  adc_lte_i: 6533.000 uA
+  adc_75v_v: 35.455 V
+  adc_mcu_temp_c: 22.000 C
+  adc_ntc1_c: 0.000 C
+  adc_ntc2_c: 0.000 C
+-- ROUTINE PASS --
+
+29.****TST_Battery2_V****
+Start:11:27:02
+End:11:27:02
+Retrt:0
+Result:Pass
+Value:3.929
+Addition:0.001000
+CT:CMD:Battery_Voltage_Read2:
+Output:3.929V
+30.****TST_Battery2_C****
+Start:11:27:02
+End:11:27:02
+Retrt:0
+Result:Pass
+Value:-00433.0
+Addition:0.000000
+CT:CMD:Battery_Current_Read2:
+Output:-00433.0uA
+31.****BQ_charger_OFF****
+Start:11:27:02
+End:11:27:03
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.246283
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_off"
+Output:-- ROUTINE PASS --
+
+32.****TST_Battery1****
+Start:11:27:07
+End:11:27:08
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.272268
+CT:  adc_sol_v: 1.984 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 3.926 V
+  adc_bat_i: -00506.0 uA
+  adc_lte_i: 62062.000 uA
+  adc_75v_v: 56.751 V
+  adc_mcu_temp_c: 21.000 C
+  adc_ntc1_c: 0.000 C
+  adc_ntc2_c: 0.000 C
+-- ROUTINE PASS --
+
+33.****TST_Battery1_V****
+Start:11:27:09
+End:11:27:09
+Retrt:0
+Result:Pass
+Value:3.926
+Addition:0.000000
+CT:CMD:Battery_Voltage_Read1:
+Output:3.926V
+34.****TST_Battery1_C****
+Start:11:27:09
+End:11:27:09
+Retrt:0
+Result:Pass
+Value:-00506.0
+Addition:0.000000
+CT:CMD:Battery_Current_Read1:
+Output:-00506.0uA
+35.****____TST_Battery____****
+Start:11:27:09
+End:11:27:09
+Retrt:0
+Result:Pass
+Value:
+CT:
+36.****BQ_charger_ON****
+Start:11:27:09
+End:11:27:10
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.248279
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine bq256xx_on"
+Output:-- ROUTINE PASS --
+
+37.****____TST_TEMP____****
+Start:11:27:14
+End:11:27:14
+Retrt:0
+Result:Pass
+Value:
+CT:
+38.****Temp_with_rp_charge****
+Start:11:27:14
+End:11:27:15
+Retrt:0
+Result:Pass
+Value:21.000
+Addition:1.297248
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine get_power_info"
+Output:  adc_sol_v: 2.018 V
+  adc_sol_i: 00.000 uA
+  adc_bat_v: 4.026 V
+  adc_bat_i: 091966.0 uA
+  adc_lte_i: 47894.000 uA
+  adc_75v_v: 52.532 V
+  adc_mcu_temp_c: 21.000 C
+  adc_ntc1_c: 0.000 C
+  adc_ntc2_c: 0.000 C
+-- ROUTINE PASS --
+
+39.****____TEST_ClawLock____****
+Start:11:27:15
+End:11:27:15
+Retrt:0
+Result:Pass
+Value:
+CT:
+40.****ClawLock_unlock_cmd_send****
+Start:11:27:15
+End:11:27:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.243280
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine send_unlock_cmd"
+Output:-- ROUTINE PASS --
+
+41.****ClawLock_Is_Unlock****
+Start:11:27:18
+End:11:27:20
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.303249
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine lock_status"
+Output:Status: 3
+-- ROUTINE PASS --
+
+42.****Triangle_NFC_Insert****
+Start:11:27:20
+End:11:27:27
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:7.135006
+CT:Operator confirmation
+Output:PASS
+43.****ClawLock_lock_cmd_send****
+Start:11:27:27
+End:11:27:28
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.258253
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine send_lock_cmd"
+Output:-- ROUTINE PASS --
+
+44.****ClawLock_Is_lock****
+Start:11:27:33
+End:11:27:34
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.283247
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine lock_status"
+Output:Status: 7
+-- ROUTINE PASS --
+
+45.****Human_Check_ClawLOCK_Lock****
+Start:11:27:34
+End:11:27:39
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:4.547738
+CT:Operator confirmation
+Output:PASS
+46.****____TEST_Triangle_NFC____****
+Start:11:27:39
+End:11:27:39
+Retrt:0
+Result:Pass
+Value:
+CT:
+47.****TEST_nfc_rideable_run****
+Start:11:27:39
+End:11:27:40
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.282250
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_rideable_run"
+Output:-- ROUTINE PASS --
+
+48.****TEST_Triangle_NFC****
+Start:11:27:40
+End:11:27:42
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.264271
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_rideable_total_detect_count"
+Output:NFC Taps Detected 1
+-- ROUTINE PASS --
+-- ROUTINE PASS --
+
+49.****ClawLock_unlock_cmd_send****
+Start:11:27:42
+End:11:27:43
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.266269
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine send_unlock_cmd"
+Output:-- ROUTINE PASS --
+
+50.****ClawLock_Is_Unlock****
+Start:11:27:47
+End:11:27:48
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.382227
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine lock_status"
+Output:Status: 4
+-- ROUTINE PASS --
+
+51.****Triangle_NFC_Pull_Out****
+Start:11:27:48
+End:11:27:52
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.527963
+CT:Operator confirmation
+Output:PASS
+52.****____TEST_FlipDot_Check____****
+Start:11:27:52
+End:11:27:52
+Retrt:0
+Result:Pass
+Value:
+CT:
+53.****TEST_Light_on_flipdot****
+Start:11:27:52
+End:11:27:53
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.298250
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine set_flipdots 7"
+Output:-- ROUTINE PASS --
+
+54.****TEST_ play_audio_freq****
+Start:11:27:53
+End:11:27:54
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.305246
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine play_audio_freq"
+Output:-- ROUTINE PASS --
+
+55.****Human_Check_Sound_On****
+Start:11:27:54
+End:11:27:57
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.449586
+CT:Operator confirmation
+Output:PASS
+56.****TEST_stop_audio****
+Start:11:27:57
+End:11:27:58
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.263250
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine stop_audio"
+Output:-- ROUTINE PASS --
+
+57.****Human_Check_Sound_Off****
+Start:11:27:58
+End:11:28:01
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.160677
+CT:Operator confirmation
+Output:PASS
+58.****Human_Check_FlipDot_On****
+Start:11:28:01
+End:11:28:04
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.258681
+CT:Operator confirmation
+Output:PASS
+59.****TEST_Light_off_flipdot****
+Start:11:28:04
+End:11:28:05
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.268266
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine set_flipdots 0"
+Output:-- ROUTINE PASS --
+
+60.****Human_Check_FlipDot_Off****
+Start:11:28:05
+End:11:28:06
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.489120
+CT:Operator confirmation
+Output:PASS
+61.****____TEST_UI_NFC____****
+Start:11:28:06
+End:11:28:06
+Retrt:0
+Result:Pass
+Value:
+CT:
+62.****TST_Close_UI_NFC****
+Start:11:28:06
+End:11:28:09
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:2.277687
+CT:Operator confirmation
+Output:PASS
+63.****TEST_bike_key_nfc_user_run****
+Start:11:28:09
+End:11:28:10
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.264271
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_user_run"
+Output:-- ROUTINE PASS --
+
+64.****TEST_bike_key_total_detect****
+Start:11:28:10
+End:11:28:11
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.278262
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_user_total_detect_count"
+Output:NFC Taps Detected 8
+-- ROUTINE PASS --
+-- ROUTINE PASS --
+
+65.****TST_Close_UI_NFC_OUT****
+Start:11:28:11
+End:11:28:13
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.474146
+CT:Operator confirmation
+Output:PASS
+66.****TST_Close_Transit_Card****
+Start:11:28:13
+End:11:28:16
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.073223
+CT:Operator confirmation
+Output:PASS
+67.****TEST_transit_card_nfc_user_run****
+Start:11:28:16
+End:11:28:17
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.334207
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_user_run"
+Output:-- ROUTINE PASS --
+
+68.****TEST_transit_card_total_detect****
+Start:11:28:17
+End:11:28:18
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.275266
+CT:CMD:cmd /c  "set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine nfc_user_total_detect_count"
+Output:NFC Taps Detected 4
+-- ROUTINE PASS --
+-- ROUTINE PASS --
+
+69.****TEST_ Remove_Transit_Card****
+Start:11:28:18
+End:11:28:20
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.229290
+CT:Operator confirmation
+Output:PASS
+70.****____TST_SIM_Card____****
+Start:11:28:20
+End:11:28:20
+Retrt:0
+Result:Pass
+Value:
+CT:
+71.****ICCID****
+Start:11:28:20
+End:11:28:21
+Retrt:0
+Result:Pass
+Value:89430301722336188584
+Addition:1.069361
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data modem_iccid"
+Output:modem_iccid: 89430301722336188584
+
+72.****IMEI****
+Start:11:28:21
+End:11:28:22
+Retrt:0
+Result:Pass
+Value:869965067450381
+Addition:1.050394
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py read_data modem_imei"
+Output:modem_imei: (869965067450381,)
+
+73.****opmode_clear_forced_state****
+Start:11:28:22
+End:11:28:23
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.259274
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine opmode_clear_forced_state"
+Output:-- ROUTINE PASS --
+
+74.****____Set ship mode____****
+Start:11:28:26
+End:11:28:26
+Retrt:0
+Result:Pass
+Value:
+CT:
+75.****ship_mode****
+Start:11:28:26
+End:11:28:27
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:1.250294
+CT:CMD:cmd /c"set PYTHONPATH=. && py ./scripts/monolith/uds_client.py run_routine enter_shipmode"
+Output:-- ROUTINE PASS --
+
+76.****____TEST_FlipDot_Check____****
+Start:11:28:39
+End:11:28:39
+Retrt:0
+Result:Pass
+Value:
+CT:
+77.****FlipDot_Red_On****
+Start:11:28:39
+End:11:28:43
+Retrt:0
+Result:Pass
+Value:PASS
+Addition:3.516969
+CT:Operator confirmation
+Output:PASS
+78.****____Power_Off_12V____****
+Start:11:28:43
+End:11:28:44
+Retrt:0
+Result:Pass
+Value:
+CT:
+79.****Power_Off_Recovery12V****
+Start:11:28:54
+End:11:28:55
+Retrt:0
+Result:Pass
+Value:
+CT:
