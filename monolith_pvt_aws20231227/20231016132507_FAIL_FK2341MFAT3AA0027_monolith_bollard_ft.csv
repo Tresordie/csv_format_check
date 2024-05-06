@@ -1,2 +1,0 @@
-record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
-1,Human_Check_Solar_L_ON,PASS,PASS,,FAIL,5.045084,FAIL,FAIL,902025,7824A4E8-DA15-4A6E-A1FE-94CFC44698B0,FK2341MFAT3AA0027,2023-10-16 13:24:54,2023-10-16 13:25:07,STA23AYM5201,monolith_bollard_ft,10023020

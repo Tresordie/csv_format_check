@@ -781,5 +781,7 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./maple_bms", "./", "./20240429_bms")
+    parametric_data_rule = parametric_data_rule(
+        "./mcu_self_test_format", "./", "./20240506_mcu_selftest"
+    )
     parametric_data_rule.parametric_format_validation()

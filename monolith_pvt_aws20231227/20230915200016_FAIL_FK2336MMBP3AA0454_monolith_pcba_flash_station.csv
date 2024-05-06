@@ -1,2 +1,0 @@
-record_index,test_name,lower_limit,upper_limit,units,test_value,test_time,pass_fail_status,overall_test_result,exit_status,test_run_uuid,sn,start_time,end_time,work_order,test_station_name,test_station_id
-1,Disable_RDP,PASS,PASS,,FAIL,0.45,FAIL,FAIL,100301,530b0936-a808-48e3-838b-15e1d2960910,FK2336MMBP3AA0454,2023-09-15 20:00:10,2023-09-15 20:00:16,STT239MM01,monolith_pcba_flash_station,001
