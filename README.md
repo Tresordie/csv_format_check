@@ -1,7 +1,10 @@
 # csv_format_check
 check csv_format meet requirements
 
+
+
 2023-06-28
+
 Initial release: drafted script as a basic check for csv log format
 
 
@@ -21,3 +24,8 @@ Initial release: drafted script as a basic check for csv log format
 
 ![](https://raw.githubusercontent.com/Tresordie/PicBed/master/csv_format_check_scripts_request.excalidraw.png)
 
+
+
+2024-05-08
+
+1. For padding data check, just show error of one row because all padding same
