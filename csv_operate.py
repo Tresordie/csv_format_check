@@ -95,13 +95,19 @@ def pd_read_csv_head(csv_path):
 def pd_read_csv_column(csv_path, column_num):
     df = pd.read_csv(csv_path, header=None, keep_default_na=False)
     # print(df.iloc[:, column_num])
-    return df.iloc[:, column_num]
+    return list(df.iloc[:, column_num])
 
 
 def pd_read_csv_column_by_name(csv_path, column_name):
     df = pd.read_csv(csv_path, header=None, keep_default_na=False)
     # print(df[column_name])
     return df[column_name]
+
+
+def pd_read_csv_column_by_name_with_default_header(csv_path, column_name):
+    df = pd.read_csv(csv_path, keep_default_na=False)
+    # print(df[column_name])
+    return list(df[column_name])
 
 
 def pd_read_csv_row(csv_path, row_num):
