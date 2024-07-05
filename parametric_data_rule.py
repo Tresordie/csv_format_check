@@ -592,7 +592,8 @@ class parametric_data_rule(object):
 
             station_name_split = column_list[0].split("_")
             for i in range(len(station_name_split)):
-                if not station_name_split[i].isalpha():
+                # test station name can be digital or alpha
+                if not station_name_split[i].isalnum():
                     self.validate_result[1] += (
                         "column[%d] -- test_station_name(%s): [%s] with illegal character\n"
                         % (column_index, column_list[0], station_name_split[i])
@@ -792,5 +793,7 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./aws_csv", "./", "./20240529_aws_csv")
+    parametric_data_rule = parametric_data_rule(
+        "./pack_test", "./", "./20240705_pack_test"
+    )
     parametric_data_rule.parametric_format_validation()
