@@ -6,7 +6,7 @@
 @Author  :   SimonYuan 
 @Version :   1.0
 @Site    :   https://tresordie.github.io/
-@Desc    :   parametric csv log格式检查, 检查完成后, 输出格式有问题的csv log及细节到csv文件记录, 并将格式有问题的csv log拷贝到指定文件夹下
+@Desc    :   parametric csv log格式检查, 检查完成后, 输出格式有问题的csv log及细节到csv文件记录, 并将格式有问题的csv log拷贝到指定文件夹�??
 """
 
 
@@ -361,7 +361,7 @@ class parametric_data_rule(object):
             else:
                 if (
                     "PASS" == self.get_overall_test_result_from_filename()
-                    and column_list_set[0] != '0'
+                    and column_list_set[0] != "0"
                 ):
                     self.validate_result[1] += (
                         "column[%d] -- exit_status value error(expected error_code: 0)\n"
@@ -369,7 +369,7 @@ class parametric_data_rule(object):
                     )
                 elif (
                     "FAIL" == self.get_overall_test_result_from_filename()
-                    and column_list_set[0] == '0'
+                    and column_list_set[0] == "0"
                 ):
                     self.validate_result[1] += (
                         "column[%d] -- exit_status value error(expected error_code: NON-ZERO)\n"
@@ -793,5 +793,7 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./test", "./", "./20240705_pack_test")
+    parametric_data_rule = parametric_data_rule(
+        "./dvt_logs_format", "./", "./20240710_dvt_test"
+    )
     parametric_data_rule.parametric_format_validation()
