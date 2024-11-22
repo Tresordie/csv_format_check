@@ -793,5 +793,5 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./dvt", "./", "./20240811_dvt2_test")
+    parametric_data_rule = parametric_data_rule("./EVT", "./", "./20240811_dvt2_test")
     parametric_data_rule.parametric_format_validation()
