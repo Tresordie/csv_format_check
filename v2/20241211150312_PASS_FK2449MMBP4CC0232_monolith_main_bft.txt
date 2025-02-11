@@ -1,0 +1,6 @@
+batt_SIFO
+***************
+Station: monolith_main_bft
+FixtureID: 1
+SN: FK2449MMBP4CC0232
+***************
