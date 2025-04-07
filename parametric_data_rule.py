@@ -3,7 +3,7 @@
 """
 @File    :   parametric_data_rule.py
 @Time    :   2024/01/01 21:04:02
-@Author  :   SimonYuan 
+@Author  :   SimonYuan
 @Version :   1.0
 @Site    :   https://tresordie.github.io/
 @Desc    :   parametric csv log格式检查, 检查完成后, 输出格式有问题的csv log及细节到csv文件记录, 并将格式有问题的csv log拷贝到指定文件夹
@@ -793,5 +793,5 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./jira_error", "./", "./hct_20250211")
+    parametric_data_rule = parametric_data_rule("./db", "./", "./hct_20250211")
     parametric_data_rule.parametric_format_validation()
