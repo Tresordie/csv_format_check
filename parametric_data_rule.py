@@ -793,5 +793,5 @@ class parametric_data_rule(object):
 
 
 if __name__ == "__main__":
-    parametric_data_rule = parametric_data_rule("./db", "./", "./hct_20250211")
+    parametric_data_rule = parametric_data_rule("./logs", "./", "./hct_20250211")
     parametric_data_rule.parametric_format_validation()
